@@ -1,0 +1,3 @@
+[GetSystemInfo] Maximum number of logical processors: 12
+[GetMaximumProcessorCount] Maximum number of logical processors: 12
+[GetLogicalProcessorInformationEx] Number of logical processors: 12
