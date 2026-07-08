@@ -1,0 +1,9 @@
+{
+  "elastic_modulus_mpa": 72439.05,
+  "elastic_modulus_b_basis_mpa": 65643.64,
+  "poisson_ratio": 0.34,
+  "yield_strength_mpa": 491.79,
+  "ultimate_strength_mpa": 531.78,
+  "density_tonne_per_mm3": 2.7e-09,
+  "ultimate_load_factor": 1.5
+}

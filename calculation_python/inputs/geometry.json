@@ -1,0 +1,27 @@
+{
+  "skin": {
+    "thickness_mm": 3.9,
+    "panel_length_mm": 600.0,
+    "panel_width_mm": 200.0,
+    "panel_count": 10
+  },
+  "t_stringer": {
+    "count": 4,
+    "DIM1_mm": 65.0,
+    "DIM2_mm": 42.0,
+    "DIM3_mm": 3.0,
+    "DIM4_mm": 2.1
+  },
+  "omega_stringer": {
+    "count": 5,
+    "DIM1_mm": 28.0,
+    "DIM2_mm": 2.4,
+    "DIM3_mm": 20.0,
+    "DIM4_mm": 15.0
+  },
+  "column": {
+    "effective_width_mm": 200.0,
+    "length_mm": 600.0,
+    "effective_length_factor": 1.0
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "stress_input": {
+    "schema": "Ordered Import layout: ID, panel XX/XY/YY for cases 1/2, stringer axial for cases 1/2",
+    "processing": "Values are consumed directly; blank fields become zero only for non-applicable element types."
+  },
+  "strength": {
+    "panel_von_mises": "sqrt(xx^2 + yy^2 - xx*yy + 3*xy^2)",
+    "reserve_factor": "ultimate_strength / (ultimate_load_factor * applicable_stress)"
+  },
+  "volume_averaging": {
+    "equation": "sum(element_volume * element_stress) / sum(element_volume)",
+    "volume_source": "inputs/element_volumes.csv"
+  },
+  "mass": {
+    "skin_area_mm2": "skin_thickness * panel_width",
+    "t_stringer_area_mm2": "DIM1*DIM3 + (DIM2-DIM3)*DIM4",
+    "omega_stringer_area_mm2": "2*DIM4*DIM2 + 2*DIM1*DIM2 + (DIM3-2*DIM2)*DIM2",
+    "component_volume_mm3": "area * panel_length * count",
+    "total_mass_kg": "density_tonne_per_mm3 * total_volume_mm3 * 1000",
+    "note": "Geometry-derived Mass_computed logic; FE extracted volumes are not used for mass."
+  },
+  "panel_buckling": {
+    "sigma_e": "E_b*pi^2/(12*(1-nu^2))*(t/b)^2",
+    "k_tau": "5.34 + 4/alpha^2",
+    "combined_rf": "1 / (biaxial_interaction + shear_interaction^2)"
+  },
+  "column_buckling": {
+    "combined_stress": "volume-weighted adjacent half-panels plus stringer",
+    "critical_stress": "pi^2*E_b/slenderness^2",
+    "reserve_factor": "critical_stress / abs(ultimate_load_factor * combined_stress)"
+  }
+}
