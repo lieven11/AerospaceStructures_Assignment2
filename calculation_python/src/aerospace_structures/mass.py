@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
+from .geometry import panel_thicknesses_mm
 from .models import MassBreakdown, MassComponent
 
 
@@ -15,7 +16,10 @@ def calculate_geometry_mass(
     omega_section = geometry["omega_stringer"]
 
     panel_length = skin["panel_length_mm"]
-    skin_area = skin["thickness_mm"] * skin["panel_width_mm"]
+    skin_areas = [
+        thickness * skin["panel_width_mm"]
+        for thickness in panel_thicknesses_mm(geometry)
+    ]
     t_area = (
         t_section["DIM1_mm"] * t_section["DIM3_mm"]
         + (t_section["DIM2_mm"] - t_section["DIM3_mm"]) * t_section["DIM4_mm"]
@@ -27,10 +31,15 @@ def calculate_geometry_mass(
         * omega_section["DIM2_mm"]
     )
 
-    definitions = (
-        ("skin_panel", skin["panel_count"], skin_area),
-        ("t_stringer", t_section["count"], t_area),
-        ("omega_stringer", omega_section["count"], omega_area),
+    definitions = [
+        (f"skin_panel_{panel_id}", 1, area)
+        for panel_id, area in enumerate(skin_areas, start=1)
+    ]
+    definitions.extend(
+        [
+            ("t_stringer", t_section["count"], t_area),
+            ("omega_stringer", omega_section["count"], omega_area),
+        ]
     )
     components: list[MassComponent] = []
     for name, count, area in definitions:

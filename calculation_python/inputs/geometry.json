@@ -1,6 +1,17 @@
 {
   "skin": {
-    "thickness_mm": 3.9,
+    "panel_thicknesses_mm": [
+      3.9,
+      3.9,
+      3.9,
+      3.9,
+      3.9,
+      3.9,
+      3.9,
+      3.9,
+      3.9,
+      3.9
+    ],
     "panel_length_mm": 600.0,
     "panel_width_mm": 200.0,
     "panel_count": 10

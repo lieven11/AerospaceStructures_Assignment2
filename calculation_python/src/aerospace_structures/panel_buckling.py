@@ -26,21 +26,22 @@ def calculate_panel_buckling(
     poisson_ratio: float,
     length_mm: float,
     width_mm: float,
-    thickness_mm: float,
+    thicknesses_mm: list[float],
     ultimate_load_factor: float,
 ) -> list[PanelBucklingResult]:
     alpha = length_mm / width_mm
-    sigma_e = (
-        elastic_modulus_b_basis_mpa
-        * math.pi**2
-        / (12.0 * (1.0 - poisson_ratio**2))
-        * (thickness_mm / width_mm) ** 2
-    )
     k_tau = 5.34 + 4.0 / alpha**2
-    tau_critical = sigma_e * k_tau
 
     results: list[PanelBucklingResult] = []
     for panel in panels:
+        thickness_mm = thicknesses_mm[panel.panel_id - 1]
+        sigma_e = (
+            elastic_modulus_b_basis_mpa
+            * math.pi**2
+            / (12.0 * (1.0 - poisson_ratio**2))
+            * (thickness_mm / width_mm) ** 2
+        )
+        tau_critical = sigma_e * k_tau
         main1, _, ratio1 = _compression_pair(panel.xx_case1, panel.yy_case1)
         main2, _, ratio2 = _compression_pair(panel.xx_case2, panel.yy_case2)
         k_biax1 = _biaxial_factor(alpha, ratio1, range(1, 7))

@@ -7,10 +7,12 @@ from typing import Any
 from .averaging import average_panels, average_stringers
 from .column_buckling import calculate_column_buckling
 from .excel_export import write_csv, write_json, write_xlsx
-from .io import load_element_volumes, load_json, load_raw_stresses
+from .geometry import panel_thicknesses_mm
+from .io import load_element_volumes, load_json, load_query_stresses
 from .mass import calculate_geometry_mass
 from .panel_buckling import calculate_panel_buckling
 from .results import build_results_final_matrix
+from .reporting import thickness_violations
 from .sections import calculate_omega_section, calculate_t_section
 from .strength import calculate_strength
 from .stress_processing import normalize_stresses
@@ -23,10 +25,27 @@ def run_calculation(project_root: Path) -> dict[str, Any]:
     outputs.mkdir(parents=True, exist_ok=True)
 
     geometry = load_json(inputs / "geometry.json")
+    violations = thickness_violations(geometry)
+    if violations:
+        raise ValueError(
+            "Geometry violates mandatory thickness minimums: "
+            + "; ".join(violations)
+        )
     materials = load_json(inputs / "materials.json")
     layout = load_json(inputs / "layout.json")
-    raw = load_raw_stresses(inputs / "analysis_stresses.csv")
+    results_query = project_root.parent / "Results_Querey"
+    raw = load_query_stresses(
+        results_query / "Stresses.csv",
+        results_query / "Axial.csv",
+    )
     volumes = load_element_volumes(inputs / "element_volumes.csv")
+    skin_thicknesses = panel_thicknesses_mm(geometry)
+    panel_volumes = [
+        thickness
+        * geometry["skin"]["panel_width_mm"]
+        * geometry["skin"]["panel_length_mm"]
+        for thickness in skin_thicknesses
+    ]
 
     normalized = normalize_stresses(raw)
     strength = calculate_strength(
@@ -34,7 +53,12 @@ def run_calculation(project_root: Path) -> dict[str, Any]:
         materials["ultimate_strength_mpa"],
         materials["ultimate_load_factor"],
     )
-    panels = average_panels(normalized, volumes, layout["panel_element_groups"])
+    panels = average_panels(
+        normalized,
+        volumes,
+        layout["panel_element_groups"],
+        panel_volumes,
+    )
     stringers = average_stringers(normalized, volumes, layout["stringer_element_groups"])
     panel_buckling = calculate_panel_buckling(
         panels,
@@ -42,25 +66,28 @@ def run_calculation(project_root: Path) -> dict[str, Any]:
         materials["poisson_ratio"],
         geometry["skin"]["panel_length_mm"],
         geometry["skin"]["panel_width_mm"],
-        geometry["skin"]["thickness_mm"],
+        skin_thicknesses,
         materials["ultimate_load_factor"],
     )
-    t_section = calculate_t_section(
-        geometry,
-        materials["yield_strength_mpa"],
-        materials["elastic_modulus_b_basis_mpa"],
-    )
-    omega_section = calculate_omega_section(
-        geometry,
-        materials["yield_strength_mpa"],
-        materials["elastic_modulus_b_basis_mpa"],
-    )
+    t_section_ids = set(layout["t_section_stringer_ids"])
+    sections_by_stringer = {}
+    for stringer_id in range(1, len(skin_thicknesses)):
+        section_calculator = (
+            calculate_t_section
+            if stringer_id in t_section_ids
+            else calculate_omega_section
+        )
+        sections_by_stringer[stringer_id] = section_calculator(
+            geometry,
+            materials["yield_strength_mpa"],
+            materials["elastic_modulus_b_basis_mpa"],
+            skin_thicknesses[stringer_id - 1],
+            skin_thicknesses[stringer_id],
+        )
     column_buckling = calculate_column_buckling(
         panels,
         stringers,
-        t_section,
-        omega_section,
-        set(layout["t_section_stringer_ids"]),
+        sections_by_stringer,
         materials["ultimate_load_factor"],
     )
     mass = calculate_geometry_mass(
@@ -73,6 +100,9 @@ def run_calculation(project_root: Path) -> dict[str, Any]:
         panel_buckling,
         column_buckling,
         mass.total_mass_kg,
+        geometry,
+        layout,
+        project_root.parent / "AS_Project_Part2_SubmissionTemplate_3766785.csv",
     )
     payload = {
         "mass_kg": mass.total_mass_kg,
@@ -82,7 +112,10 @@ def run_calculation(project_root: Path) -> dict[str, Any]:
         "panel_averages": [asdict(value) for value in panels],
         "stringer_averages": [asdict(value) for value in stringers],
         "panel_buckling": [asdict(value) for value in panel_buckling],
-        "sections": {"t_section": asdict(t_section), "omega_section": asdict(omega_section)},
+        "sections": {
+            str(stringer_id): asdict(section)
+            for stringer_id, section in sections_by_stringer.items()
+        },
         "column_buckling": [asdict(value) for value in column_buckling],
         "results_final": matrix,
     }
@@ -91,8 +124,8 @@ def run_calculation(project_root: Path) -> dict[str, Any]:
         outputs / "calculation_methodology.json",
         {
             "stress_input": {
-                "schema": "Ordered Import layout: ID, panel XX/XY/YY for cases 1/2, stringer axial for cases 1/2",
-                "processing": "Values are consumed directly; blank fields become zero only for non-applicable element types.",
+                "schema": "Results_Querey/Stresses.csv elements 1-30 and Axial.csv elements 37-63; load case 1 is followed vertically by load case 2",
+                "processing": "Only the first fixed-size result block in each file is read, so appended duplicate blocks are ignored.",
             },
             "strength": {
                 "panel_von_mises": "sqrt(xx^2 + yy^2 - xx*yy + 3*xy^2)",
@@ -101,9 +134,10 @@ def run_calculation(project_root: Path) -> dict[str, Any]:
             "volume_averaging": {
                 "equation": "sum(element_volume * element_stress) / sum(element_volume)",
                 "volume_source": "inputs/element_volumes.csv",
+                "column_panel_volume": "panel_thickness * panel_width * panel_length for each adjacent panel",
             },
             "mass": {
-                "skin_area_mm2": "skin_thickness * panel_width",
+                "skin_area_mm2": "panel_thickness * panel_width, evaluated separately for panels 1-10",
                 "t_stringer_area_mm2": "DIM1*DIM3 + (DIM2-DIM3)*DIM4",
                 "omega_stringer_area_mm2": "2*DIM4*DIM2 + 2*DIM1*DIM2 + (DIM3-2*DIM2)*DIM2",
                 "component_volume_mm3": "area * panel_length * count",
@@ -117,12 +151,13 @@ def run_calculation(project_root: Path) -> dict[str, Any]:
             },
             "column_buckling": {
                 "combined_stress": "volume-weighted adjacent half-panels plus stringer",
+                "combined_section": "half effective width from each adjacent panel, retaining each panel's own thickness in centroid and inertia calculations",
                 "critical_stress": "pi^2*E_b/slenderness^2",
                 "reserve_factor": "critical_stress / abs(ultimate_load_factor * combined_stress)",
             },
         },
     )
-    write_csv(outputs / "Results_final.csv", matrix)
+    write_csv(outputs / "Results_final.csv", matrix, delimiter=";")
     write_xlsx(outputs / "Results_final.xlsx", matrix)
     write_intermediate_outputs(
         outputs,
@@ -131,8 +166,7 @@ def run_calculation(project_root: Path) -> dict[str, Any]:
         panels,
         stringers,
         panel_buckling,
-        t_section,
-        omega_section,
+        sections_by_stringer,
         column_buckling,
         mass,
         materials["ultimate_load_factor"],

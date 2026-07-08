@@ -1,7 +1,7 @@
 {
   "stress_input": {
-    "schema": "Ordered Import layout: ID, panel XX/XY/YY for cases 1/2, stringer axial for cases 1/2",
-    "processing": "Values are consumed directly; blank fields become zero only for non-applicable element types."
+    "schema": "Results_Querey/Stresses.csv elements 1-30 and Axial.csv elements 37-63; load case 1 is followed vertically by load case 2",
+    "processing": "Only the first fixed-size result block in each file is read, so appended duplicate blocks are ignored."
   },
   "strength": {
     "panel_von_mises": "sqrt(xx^2 + yy^2 - xx*yy + 3*xy^2)",
@@ -9,10 +9,11 @@
   },
   "volume_averaging": {
     "equation": "sum(element_volume * element_stress) / sum(element_volume)",
-    "volume_source": "inputs/element_volumes.csv"
+    "volume_source": "inputs/element_volumes.csv",
+    "column_panel_volume": "panel_thickness * panel_width * panel_length for each adjacent panel"
   },
   "mass": {
-    "skin_area_mm2": "skin_thickness * panel_width",
+    "skin_area_mm2": "panel_thickness * panel_width, evaluated separately for panels 1-10",
     "t_stringer_area_mm2": "DIM1*DIM3 + (DIM2-DIM3)*DIM4",
     "omega_stringer_area_mm2": "2*DIM4*DIM2 + 2*DIM1*DIM2 + (DIM3-2*DIM2)*DIM2",
     "component_volume_mm3": "area * panel_length * count",
@@ -26,6 +27,7 @@
   },
   "column_buckling": {
     "combined_stress": "volume-weighted adjacent half-panels plus stringer",
+    "combined_section": "half effective width from each adjacent panel, retaining each panel's own thickness in centroid and inertia calculations",
     "critical_stress": "pi^2*E_b/slenderness^2",
     "reserve_factor": "critical_stress / abs(ultimate_load_factor * combined_stress)"
   }

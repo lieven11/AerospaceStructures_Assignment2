@@ -27,16 +27,14 @@ def _combined_stress(
 def calculate_column_buckling(
     panels: list[AveragedPanelStress],
     stringers: list[AveragedStringerStress],
-    t_section: SectionProperties,
-    omega_section: SectionProperties,
-    t_section_ids: set[int],
+    sections_by_stringer: dict[int, SectionProperties],
     ultimate_load_factor: float,
 ) -> list[ColumnBucklingResult]:
     results: list[ColumnBucklingResult] = []
     for stringer in stringers:
         left = panels[stringer.stringer_id - 1]
         right = panels[stringer.stringer_id]
-        section = t_section if stringer.stringer_id in t_section_ids else omega_section
+        section = sections_by_stringer[stringer.stringer_id]
         combined_case1 = _combined_stress(
             left.xx_case1,
             left.volume_mm3,
@@ -68,4 +66,3 @@ def calculate_column_buckling(
             )
         )
     return results
-

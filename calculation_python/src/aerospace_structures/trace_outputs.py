@@ -32,8 +32,7 @@ def write_intermediate_outputs(
     panels: list[AveragedPanelStress],
     stringers: list[AveragedStringerStress],
     panel_buckling: list[PanelBucklingResult],
-    t_section: SectionProperties,
-    omega_section: SectionProperties,
+    sections_by_stringer: dict[int, SectionProperties],
     columns: list[ColumnBucklingResult],
     mass: MassBreakdown,
     ultimate_load_factor: float,
@@ -46,7 +45,10 @@ def write_intermediate_outputs(
     _write_rows(output_dir / "panel_buckling_results.csv", [asdict(row) for row in panel_buckling])
     _write_rows(
         output_dir / "section_properties.csv",
-        [asdict(t_section), asdict(omega_section)],
+        [
+            {"stringer_id": stringer_id, **asdict(section)}
+            for stringer_id, section in sections_by_stringer.items()
+        ],
     )
     _write_rows(
         output_dir / "column_buckling_results.csv",

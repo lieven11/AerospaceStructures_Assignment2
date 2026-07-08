@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from .calculation import run_calculation
+from .cli import run_cli
 
 
 def main() -> None:
@@ -15,11 +15,8 @@ def main() -> None:
         help="Folder containing inputs/ and outputs/ (defaults to this project).",
     )
     args = parser.parse_args()
-    result = run_calculation(args.project_root.resolve())
-    print(f"Mass: {result['mass_kg']:.12f} kg")
-    print(f"Results written to: {args.project_root.resolve() / 'outputs'}")
+    raise SystemExit(run_cli(args.project_root))
 
 
 if __name__ == "__main__":
     main()
-

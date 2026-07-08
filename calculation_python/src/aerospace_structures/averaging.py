@@ -19,6 +19,7 @@ def average_panels(
     stresses: dict[int, NormalizedStress],
     volumes: dict[int, float],
     groups: list[list[int]],
+    panel_volumes_mm3: list[float] | None = None,
 ) -> list[AveragedPanelStress]:
     results: list[AveragedPanelStress] = []
     for panel_id, group in enumerate(groups, start=1):
@@ -28,7 +29,11 @@ def average_panels(
             AveragedPanelStress(
                 panel_id=panel_id,
                 element_ids=ids,
-                volume_mm3=total_volume,
+                volume_mm3=(
+                    panel_volumes_mm3[panel_id - 1]
+                    if panel_volumes_mm3 is not None
+                    else total_volume
+                ),
                 xx_case1=_weighted_average(ids, {i: stresses[i].xx_case1 for i in ids}, volumes),
                 xx_case2=_weighted_average(ids, {i: stresses[i].xx_case2 for i in ids}, volumes),
                 xy_case1=_weighted_average(ids, {i: stresses[i].xy_case1 for i in ids}, volumes),
@@ -59,4 +64,3 @@ def average_stringers(
             )
         )
     return results
-

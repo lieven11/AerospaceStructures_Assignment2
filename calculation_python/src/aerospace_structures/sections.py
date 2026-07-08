@@ -6,6 +6,36 @@ from typing import Any
 from .models import SectionProperties
 
 
+def _skin_area_and_first_moment(
+    effective_width_mm: float,
+    left_thickness_mm: float,
+    right_thickness_mm: float,
+) -> tuple[float, float]:
+    half_width = effective_width_mm / 2.0
+    left_area = half_width * left_thickness_mm
+    right_area = half_width * right_thickness_mm
+    area = left_area + right_area
+    first_moment = (
+        -left_area * left_thickness_mm / 2.0
+        - right_area * right_thickness_mm / 2.0
+    )
+    return area, first_moment
+
+
+def _skin_inertia(
+    effective_width_mm: float,
+    left_thickness_mm: float,
+    right_thickness_mm: float,
+    neutral_axis_mm: float,
+) -> float:
+    half_width = effective_width_mm / 2.0
+    return sum(
+        half_width * thickness**3 / 12.0
+        + half_width * thickness * (neutral_axis_mm + thickness / 2.0) ** 2
+        for thickness in (left_thickness_mm, right_thickness_mm)
+    )
+
+
 def _crippling_coefficient(x: float) -> float:
     if x < 0.4:
         return math.nan
@@ -31,25 +61,30 @@ def calculate_t_section(
     geometry: dict[str, Any],
     yield_strength_mpa: float,
     elastic_modulus_b_basis_mpa: float,
+    left_skin_thickness_mm: float,
+    right_skin_thickness_mm: float,
 ) -> SectionProperties:
-    skin = geometry["skin"]
     section = geometry["t_stringer"]
     column = geometry["column"]
     w_eff = column["effective_width_mm"]
-    t_skin = skin["thickness_mm"]
     dim1 = section["DIM1_mm"]
     dim2 = section["DIM2_mm"]
     dim3 = section["DIM3_mm"]
     dim4 = section["DIM4_mm"]
 
+    skin_area, skin_first_moment = _skin_area_and_first_moment(
+        w_eff, left_skin_thickness_mm, right_skin_thickness_mm
+    )
     z_numerator = (
-        -(t_skin / 2.0) * w_eff * t_skin
+        skin_first_moment
         + (dim3 / 2.0) * dim3 * dim1
         + (dim3 + (dim2 - dim3) / 2.0) * dim4 * (dim2 - dim3)
     )
-    area = w_eff * t_skin + dim1 * dim3 + (dim2 - dim3) * dim4
+    area = skin_area + dim1 * dim3 + (dim2 - dim3) * dim4
     z_ec = z_numerator / area
-    inertia_skin = w_eff * t_skin**3 / 12.0 + w_eff * t_skin * (z_ec + t_skin / 2.0) ** 2
+    inertia_skin = _skin_inertia(
+        w_eff, left_skin_thickness_mm, right_skin_thickness_mm, z_ec
+    )
     inertia_flange = dim1 * dim3**3 / 12.0 + dim1 * dim3 * (dim3 / 2.0 - z_ec) ** 2
     inertia_web = dim4 * (dim2 - dim3) ** 3 / 12.0 + dim4 * (dim2 - dim3) * ((dim2 + dim3) / 2.0 - z_ec) ** 2
     inertia = inertia_skin + inertia_flange + inertia_web
@@ -88,26 +123,31 @@ def calculate_omega_section(
     geometry: dict[str, Any],
     yield_strength_mpa: float,
     elastic_modulus_b_basis_mpa: float,
+    left_skin_thickness_mm: float,
+    right_skin_thickness_mm: float,
 ) -> SectionProperties:
-    skin = geometry["skin"]
     section = geometry["omega_stringer"]
     column = geometry["column"]
     w_eff = column["effective_width_mm"]
-    t_skin = skin["thickness_mm"]
     dim1 = section["DIM1_mm"]
     t = section["DIM2_mm"]
     dim3 = section["DIM3_mm"]
     dim4 = section["DIM4_mm"]
 
+    skin_area, skin_first_moment = _skin_area_and_first_moment(
+        w_eff, left_skin_thickness_mm, right_skin_thickness_mm
+    )
     z_numerator = (
-        -t_skin / 2.0 * w_eff * t_skin
+        skin_first_moment
         + 2.0 * (dim4 * t) * (t / 2.0)
         + 2.0 * ((dim1 / 2.0) * t * dim1)
         + ((dim1 - t) + t / 2.0) * (dim3 - 2.0 * t) * t
     )
-    area = w_eff * t_skin + t * (2.0 * dim4 + 2.0 * dim1 + (dim3 - 2.0 * t))
+    area = skin_area + t * (2.0 * dim4 + 2.0 * dim1 + (dim3 - 2.0 * t))
     z_ec = z_numerator / area
-    inertia_skin = w_eff * t_skin**3 / 12.0 + w_eff * t_skin * (t_skin / 2.0 + z_ec) ** 2
+    inertia_skin = _skin_inertia(
+        w_eff, left_skin_thickness_mm, right_skin_thickness_mm, z_ec
+    )
     inertia_flange = dim4 * t**3 / 12.0 + dim4 * t * (t / 2.0 - z_ec) ** 2
     inertia_web = t * dim1**3 / 12.0 + dim1 * t * (dim1 / 2.0 - z_ec) ** 2
     inertia_bottom = (
@@ -148,4 +188,3 @@ def calculate_omega_section(
         ),
         euler_critical_mpa=euler,
     )
-

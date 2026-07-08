@@ -7,6 +7,8 @@ import zipfile
 from pathlib import Path
 from xml.sax.saxutils import escape
 
+from .reporting import reserve_factor_passes
+
 
 def _column_name(index: int) -> str:
     result = ""
@@ -16,10 +18,17 @@ def _column_name(index: int) -> str:
     return result
 
 
-def write_csv(path: Path, matrix: list[list[object | None]]) -> None:
+def write_csv(
+    path: Path,
+    matrix: list[list[object | None]],
+    *,
+    delimiter: str = ",",
+) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as handle:
-        csv.writer(handle).writerows([["" if value is None else value for value in row] for row in matrix])
+        csv.writer(handle, delimiter=delimiter, lineterminator="\n").writerows(
+            [["" if value is None else value for value in row] for row in matrix]
+        )
 
 
 def write_json(path: Path, payload: object) -> None:
@@ -42,7 +51,7 @@ def _cell_xml(reference: str, value: object, style: int = 0) -> str:
 
 def write_xlsx(path: Path, matrix: list[list[object | None]], sheet_name: str = "Results_final") -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    title_cells = {"B1", "C1", "B2", "E1", "E2", "L2", "E15", "E38"}
+    bold_rows = {1, 2, 7, 19, 20, 31, 43, 44, 45, 105, 106, 107, 120, 121, 122, 134, 135}
     rows_xml: list[str] = []
     for row_index, row in enumerate(matrix, start=1):
         cells: list[str] = []
@@ -50,22 +59,32 @@ def write_xlsx(path: Path, matrix: list[list[object | None]], sheet_name: str = 
             if value is None:
                 continue
             reference = f"{_column_name(column_index)}{row_index}"
-            cells.append(_cell_xml(reference, value, 1 if reference in title_cells else 0))
+            style = 1 if row_index in bold_rows else 0
+            is_rf_cell = (
+                (column_index in (2, 5) and 46 <= row_index <= 102)
+                or (column_index in (7, 15) and 108 <= row_index <= 117)
+                or (column_index in (4, 9) and 123 <= row_index <= 131)
+                or (column_index == 2 and 147 <= row_index <= 150)
+            )
+            if is_rf_cell:
+                style = 2 if reserve_factor_passes(value) else 3
+            cells.append(_cell_xml(reference, value, style))
         if cells:
             rows_xml.append(f'<row r="{row_index}">{"".join(cells)}</row>')
 
     columns = "".join(
         [
-            '<col min="1" max="1" width="3" customWidth="1"/>',
-            '<col min="2" max="3" width="18" customWidth="1"/>',
-            '<col min="4" max="4" width="3" customWidth="1"/>',
-            '<col min="5" max="17" width="18" customWidth="1"/>',
+            '<col min="1" max="1" width="75" customWidth="1"/>',
+            '<col min="2" max="4" width="62" customWidth="1"/>',
+            '<col min="5" max="15" width="38" customWidth="1"/>',
+            '<col min="16" max="16" width="3" customWidth="1"/>',
         ]
     )
+    last_column = _column_name(max(len(row) for row in matrix))
     worksheet = (
         '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
         '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
-        '<dimension ref="A1:Q61"/>'
+        f'<dimension ref="A1:{last_column}{len(matrix)}"/>'
         f'<cols>{columns}</cols>'
         f'<sheetData>{"".join(rows_xml)}</sheetData>'
         '<pageMargins left="0.7" right="0.7" top="0.75" bottom="0.75" header="0.3" footer="0.3"/>'
@@ -76,11 +95,15 @@ def write_xlsx(path: Path, matrix: list[list[object | None]], sheet_name: str = 
         '<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
         '<fonts count="2"><font><sz val="11"/><name val="Calibri"/><family val="2"/></font>'
         '<font><b/><sz val="11"/><name val="Calibri"/><family val="2"/></font></fonts>'
-        '<fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills>'
+        '<fills count="4"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill>'
+        '<fill><patternFill patternType="solid"><fgColor rgb="FFC6EFCE"/><bgColor indexed="64"/></patternFill></fill>'
+        '<fill><patternFill patternType="solid"><fgColor rgb="FFFFC7CE"/><bgColor indexed="64"/></patternFill></fill></fills>'
         '<borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders>'
         '<cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>'
-        '<cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/>'
-        '<xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs>'
+        '<cellXfs count="4"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/>'
+        '<xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/>'
+        '<xf numFmtId="0" fontId="0" fillId="2" borderId="0" xfId="0" applyFill="1"/>'
+        '<xf numFmtId="0" fontId="0" fillId="3" borderId="0" xfId="0" applyFill="1"/></cellXfs>'
         '<cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles>'
         '</styleSheet>'
     )
@@ -123,4 +146,3 @@ def write_xlsx(path: Path, matrix: list[list[object | None]], sheet_name: str = 
     with zipfile.ZipFile(path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for name, content in files.items():
             archive.writestr(name, content)
-
