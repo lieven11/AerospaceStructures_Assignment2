@@ -81,12 +81,12 @@ def build_results_final_matrix(
     for row_index, column in enumerate(column_buckling, start=122):
         matrix[row_index][1:4] = [
             column.combined_axial_case1,
-            column.critical_stress_mpa,
+            column.section.crippling_cutoff_mpa,
             column.rf_case1,
         ]
         matrix[row_index][6:9] = [
             column.combined_axial_case2,
-            column.critical_stress_mpa,
+            column.section.crippling_cutoff_mpa,
             column.rf_case2,
         ]
 

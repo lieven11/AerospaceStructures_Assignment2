@@ -8,6 +8,7 @@ from .averaging import average_panels, average_stringers
 from .column_buckling import calculate_column_buckling
 from .excel_export import write_csv, write_json, write_xlsx
 from .geometry import panel_thicknesses_mm
+from .history import record_run_comparison
 from .io import load_element_volumes, load_json, load_query_stresses
 from .mass import calculate_geometry_mass
 from .panel_buckling import calculate_panel_buckling
@@ -19,7 +20,7 @@ from .stress_processing import normalize_stresses
 from .trace_outputs import write_intermediate_outputs
 
 
-def run_calculation(project_root: Path) -> dict[str, Any]:
+def run_calculation(project_root: Path, *, record_history: bool = False) -> dict[str, Any]:
     inputs = project_root / "inputs"
     outputs = project_root / "outputs"
     outputs.mkdir(parents=True, exist_ok=True)
@@ -171,4 +172,6 @@ def run_calculation(project_root: Path) -> dict[str, Any]:
         mass,
         materials["ultimate_load_factor"],
     )
+    if record_history:
+        payload["history"] = record_run_comparison(project_root, payload, geometry)
     return payload

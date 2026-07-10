@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+import csv
+import json
 import math
+import shutil
+from contextlib import redirect_stdout
 from io import StringIO
 import sys
 import tempfile
@@ -14,7 +18,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from aerospace_structures.calculation import run_calculation  # noqa: E402
-from aerospace_structures.cli import confirm_thickness_violations  # noqa: E402
+from aerospace_structures.cli import confirm_thickness_violations, run_cli  # noqa: E402
+from aerospace_structures.history import COMPARISON_FILE_NAME, MAX_HISTORY_RECORDS  # noqa: E402
 from aerospace_structures.io import load_query_stresses  # noqa: E402
 from aerospace_structures.mass import calculate_geometry_mass  # noqa: E402
 from aerospace_structures.models import AveragedPanelStress  # noqa: E402
@@ -210,6 +215,115 @@ class WorkbookMigrationRegressionTest(unittest.TestCase):
         self.assertTrue(reserve_factor_passes(1.0001))
         self.assertFalse(reserve_factor_passes(1.0))
         self.assertFalse(reserve_factor_passes("NaN"))
+
+
+class RunHistoryTest(unittest.TestCase):
+    def _copy_project(self, temporary_path: Path) -> Path:
+        project_copy = temporary_path / "calculation_python"
+        shutil.copytree(
+            PROJECT_ROOT,
+            project_copy,
+            ignore=shutil.ignore_patterns(
+                "__pycache__",
+                ".pytest_cache",
+                "run_history",
+                COMPARISON_FILE_NAME,
+            ),
+        )
+        shutil.copytree(PROJECT_ROOT.parent / "Results_Querey", temporary_path / "Results_Querey")
+        shutil.copy2(
+            PROJECT_ROOT.parent / "AS_Project_Part2_SubmissionTemplate_3766785.csv",
+            temporary_path / "AS_Project_Part2_SubmissionTemplate_3766785.csv",
+        )
+        return project_copy
+
+    def _comparison_rows(self, project_root: Path) -> list[dict[str, str]]:
+        with (project_root / "outputs" / COMPARISON_FILE_NAME).open(
+            newline="",
+            encoding="utf-8",
+        ) as handle:
+            return list(csv.DictReader(handle))
+
+    def test_successful_cli_style_run_updates_one_comparison_file(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            project_root = self._copy_project(Path(temporary_directory))
+            result = run_calculation(project_root, record_history=True)
+            comparison_path = project_root / "outputs" / COMPARISON_FILE_NAME
+            rows = self._comparison_rows(project_root)
+
+            self.assertTrue(comparison_path.exists())
+            self.assertFalse((project_root / "run_history").exists())
+            self.assertTrue(all(row["is_latest"] == "yes" for row in rows))
+            self.assertIn("mass_kg", {row["metric"] for row in rows})
+            self.assertIn("minimum_overall_rf", {row["metric"] for row in rows})
+            self.assertEqual(result["history"]["previous_run_id"], None)
+
+    def test_second_comparison_run_compares_against_first_run(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            project_root = self._copy_project(Path(temporary_directory))
+            first = run_calculation(project_root, record_history=True)
+            geometry_path = project_root / "inputs" / "geometry.json"
+            geometry = json.loads(geometry_path.read_text(encoding="utf-8"))
+            geometry["skin"]["panel_thicknesses_mm"][0] += 0.1
+            geometry_path.write_text(json.dumps(geometry, indent=2) + "\n", encoding="utf-8")
+            second = run_calculation(project_root, record_history=True)
+
+            latest_rows = {
+                row["metric"]: row
+                for row in self._comparison_rows(project_root)
+                if row["is_latest"] == "yes"
+            }
+
+            self.assertEqual(second["history"]["previous_run_id"], first["history"]["run_id"])
+            self.assertEqual(latest_rows["mass_kg"]["previous_run_id"], first["history"]["run_id"])
+            self.assertNotEqual(latest_rows["mass_kg"]["delta_vs_previous"], "")
+            self.assertEqual(latest_rows["mass_kg"]["comparison_vs_previous"], "worse")
+            self.assertEqual(latest_rows["panel_1_thickness_mm"]["comparison_vs_previous"], "changed")
+            self.assertGreater(second["history"]["changed_metrics"], 0)
+
+    def test_official_output_paths_stay_unchanged_when_history_is_recorded(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            project_root = self._copy_project(Path(temporary_directory))
+            run_calculation(project_root, record_history=True)
+
+            self.assertTrue((project_root / "outputs" / "Results_final.csv").exists())
+            self.assertTrue((project_root / "outputs" / "Results_final.xlsx").exists())
+
+    def test_comparison_file_retention_keeps_last_ten_successful_runs(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            project_root = self._copy_project(Path(temporary_directory))
+            geometry_path = project_root / "inputs" / "geometry.json"
+            first_run_id = None
+            for index in range(MAX_HISTORY_RECORDS + 2):
+                geometry = json.loads(geometry_path.read_text(encoding="utf-8"))
+                geometry["skin"]["panel_thicknesses_mm"][0] = 3.9 + index * 0.01
+                geometry_path.write_text(json.dumps(geometry, indent=2) + "\n", encoding="utf-8")
+                result = run_calculation(project_root, record_history=True)
+                if first_run_id is None:
+                    first_run_id = result["history"]["run_id"]
+            run_ids = {
+                row["run_id"]
+                for row in self._comparison_rows(project_root)
+            }
+
+            self.assertEqual(len(run_ids), MAX_HISTORY_RECORDS)
+            self.assertNotIn(first_run_id, run_ids)
+
+    def test_failed_thickness_validation_creates_no_comparison_file(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            project_root = self._copy_project(Path(temporary_directory))
+            geometry_path = project_root / "inputs" / "geometry.json"
+            geometry = json.loads(geometry_path.read_text(encoding="utf-8"))
+            geometry["skin"]["panel_thicknesses_mm"][0] = 1.1
+            geometry_path.write_text(json.dumps(geometry, indent=2) + "\n", encoding="utf-8")
+
+            output = StringIO()
+            with redirect_stdout(output):
+                exit_code = run_cli(project_root)
+
+            self.assertEqual(exit_code, 1)
+            self.assertFalse((project_root / "run_history").exists())
+            self.assertFalse((project_root / "outputs" / COMPARISON_FILE_NAME).exists())
 
 
 if __name__ == "__main__":

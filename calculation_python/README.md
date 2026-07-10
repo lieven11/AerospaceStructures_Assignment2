@@ -35,6 +35,14 @@ Generated files:
 - `outputs/column_buckling_results.csv`: combined stresses, critical stresses, and RFs
 - `outputs/mass_breakdown.csv`: geometry area → volume → density → mass calculation
 
+Each successful `python3 run.py` run also updates
+`outputs/run_comparison.csv`. The official `outputs/Results_final.csv` and
+`outputs/Results_final.xlsx` files keep the same names and locations, while
+`run_comparison.csv` keeps the latest 10 successful runs in one table. Latest
+run rows are marked with `is_latest=yes` and compare each tracked value against
+the previous, best, worst, and average retained previous values.
+`outputs/run_comparison.csv` is ignored by git.
+
 ## Inputs
 
 - `inputs/geometry.json`: ten individually editable panel thicknesses plus T-stringer, omega-stringer, and column geometry
