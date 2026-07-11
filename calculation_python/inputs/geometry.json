@@ -25,5 +25,13 @@
     "effective_width_mm": 200.0,
     "length_mm": 600.0,
     "effective_length_factor": 1.0
+  },
+  "model_offsets": {
+    "panel_offsets_mm": [
+      1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+    ],
+    "stringer_offsets_mm": [
+      3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0
+    ]
   }
 }

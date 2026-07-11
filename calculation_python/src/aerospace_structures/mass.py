@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from .geometry import panel_thicknesses_mm
+from .geometry import omega_stringer_area_mm2, panel_areas_mm2, t_stringer_area_mm2
 from .models import MassBreakdown, MassComponent
 
 
@@ -16,20 +16,9 @@ def calculate_geometry_mass(
     omega_section = geometry["omega_stringer"]
 
     panel_length = skin["panel_length_mm"]
-    skin_areas = [
-        thickness * skin["panel_width_mm"]
-        for thickness in panel_thicknesses_mm(geometry)
-    ]
-    t_area = (
-        t_section["DIM1_mm"] * t_section["DIM3_mm"]
-        + (t_section["DIM2_mm"] - t_section["DIM3_mm"]) * t_section["DIM4_mm"]
-    )
-    omega_area = (
-        2.0 * omega_section["DIM4_mm"] * omega_section["DIM2_mm"]
-        + 2.0 * omega_section["DIM1_mm"] * omega_section["DIM2_mm"]
-        + (omega_section["DIM3_mm"] - 2.0 * omega_section["DIM2_mm"])
-        * omega_section["DIM2_mm"]
-    )
+    skin_areas = panel_areas_mm2(geometry)
+    t_area = t_stringer_area_mm2(geometry)
+    omega_area = omega_stringer_area_mm2(geometry)
 
     definitions = [
         (f"skin_panel_{panel_id}", 1, area)

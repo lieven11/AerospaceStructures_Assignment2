@@ -5,10 +5,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "aerospace-structures-calculation"
 version = "0.1.0"
-description = "Standalone Python migration of the Assignment 1 Calculation.xlsx model"
+description = "Standalone Python migration of the Assignment 2 aerospace structures calculation"
 requires-python = ">=3.10"
 dependencies = []
 
 [tool.setuptools.packages.find]
 where = ["src"]
-
