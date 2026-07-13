@@ -739,3 +739,1370 @@ return; # Stop script and return to application
 *createentity results name="result1"
 *setvalue results id=1 resultfiles= "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/TDIM2 42 to 55, t=5.op2"
 *setvalue results id=1 init=1
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 1 95 1 1 1 4.5
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 2 95 1 1 1 4.5
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 3 95 1 1 1 4.5
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 4 95 1 1 1 4.5
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 5 95 1 1 1 4.5
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 6 95 1 1 1 4.5
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 7 95 1 1 1 4.5
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 8 95 1 1 1 4.5
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 9 95 1 1 1 4.5
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 10 95 1 1 1 4.5
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*rotateabout 1 -1491.17004 1377.50732 71.3880768
+*viewset -0.897553978 0.421305737 0.129993584 0 -0.228621968 -0.696820567 0.679833136 0 0.376999804 0.580467547 0.721753819 0 -394.853643 1527.93515 -447.021939 1 287.4517 -125.878112 1259.77587 110.749831
+*rotateabout 1 -464.089569 2164.91846 209.879639
+*viewset -0.915764439 0.303534174 -0.263139693 0 -0.316876511 -0.143199525 0.937594354 0 0.246910449 0.941998355 0.227319883 0 876.614455 229.788022 -1083.73139 1 530.532743 -66.721126 1016.69483 51.5928454
+*rotateabout 1 -500.345001 2152.68799 203.25
+*viewset -0.902701679 0.313574213 -0.294619912 0 -0.327437256 -0.056435704 0.943186013 0 0.279131729 0.947885133 0.153620485 0 959.979136 74.3213335 -1096.54006 1 730.642721 -18.0217167 816.584848 2.89343613
+*startnotehistorystate {Modified ZOFFS of Element}
+*createmark elements 1 1-30
+*setvalue elems mark=1 STATUS=2 134=2.25
+*endnotehistorystate {Modified ZOFFS of Element}
+*writefile "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/SuperPanel_AS_Project_Part2_submitted_start_3766785.fem.hm" 1
+*startnotehistorystate {Modified Dimension DIM2 of Beam Section}
+*setvalue beamsects id=4 beamsect_dim2=49
+*endnotehistorystate {Modified Dimension DIM2 of Beam Section}
+*startnotehistorystate {Modified Dimension DIM1 of Beam Section}
+*setvalue beamsects id=5 beamsect_dim1=32
+*endnotehistorystate {Modified Dimension DIM1 of Beam Section}
+*createmark elements 1 37-42 46-48 52-54
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETA={0 0 -9.616255144}
+*clearmark elements 1
+*createmark elements 1 37
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.61625514 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 38
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.61625514 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 39
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.61625514 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 40
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.61625514 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 41
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.61625514 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 42
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.61625514 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 46
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.61625514 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 47
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.61625514 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 48
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.61625514 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 52
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.61625514 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 53
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.61625514 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 54
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.61625514 0 1 0 0 0
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*createmark elements 1 37-42 46-48 52-54
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETB={0 0 -9.616255144}
+*clearmark elements 1
+*createmark elements 1 37
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.61625514
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 38
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.61625514
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 39
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.61625514
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 40
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.61625514
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 41
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.61625514
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 42
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.61625514
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 46
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.61625514
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 47
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.61625514
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 48
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.61625514
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 52
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.61625514
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 53
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.61625514
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 54
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.61625514
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*createmark elements 1 43-45 49-51 55-63
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETA={0 0 -13.99413919}
+*clearmark elements 1
+*createmark elements 1 43
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.9941392 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 44
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.9941392 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 45
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.9941392 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 49
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.9941392 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 50
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.9941392 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 51
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.9941392 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 55
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.9941392 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 56
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.9941392 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 57
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.9941392 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 58
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.9941392 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 59
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.9941392 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 60
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.9941392 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 61
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.9941392 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 62
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.9941392 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 63
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.9941392 0 1 0 0 0
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*createmark elements 2 43-45 49-51 55-63
+*attributeupdateintmark elements 2 3240 1 2 0 1
+*endnotehistorystate {Attached attributes to Element}
+*createmark elements 1 43-45 49-51 55-63
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETB={0 0 -13.99413919}
+*clearmark elements 1
+*createmark elements 1 43
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.9941392
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 44
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.9941392
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 45
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.9941392
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 49
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.9941392
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 50
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.9941392
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 51
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.9941392
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 55
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.9941392
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 56
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.9941392
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 57
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.9941392
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 58
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.9941392
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 59
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.9941392
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 60
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.9941392
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 61
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.9941392
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 62
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.9941392
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 63
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.9941392
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*retainmarkselections 0
+*feoutputmergeincludefiles 0
+*setsubmodeltype "HM_INCLUDEFILES"
+*setentitytypesupportedbyenggid 1 0
+*createstringarray 8 "HM_NODEELEMS_SET_COMPRESS_SKIP " "EXPORT_DMIG_LONGFORMAT " \
+  "HMENGINEERING_XML" "HMSUBSYSTEMCOMMENTS_XML" "HMMATCOMMENTS_XML" "HMBOMCOMMENTS_XML" \
+  "INCLUDE_RELATIVE_PATH " "EXPORT_SOLVER_DECK_XML_1 "
+*feoutputwithdata "C:/Program Files/Altair/2025.1/hwdesktop/templates/feoutput/optistruct/optistruct" "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/t=4.5, TDIM2=49.0, ODIM1= 32.fem" 0 0 2 1 8
+*startnotehistorystate {Deleted Result "result1"}
+*clearmark results 1
+*createmark results 1 "result1"
+*deletemark results 1
+*endnotehistorystate {Deleted Result "result1"}
+*clearmarkall 1
+*createentity results name="result1"
+*setvalue results id=1 resultfiles= "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/t=4.5, TDIM2=49.0, ODIM1= 32.op2"
+*setvalue results id=1 init=1
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 1 95 1 1 1 4.8
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 2 95 1 1 1 4.8
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 3 95 1 1 1 4.8
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 4 95 1 1 1 4.8
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 5 95 1 1 1 4.8
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 6 95 1 1 1 4.8
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 7 95 1 1 1 4.8
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 8 95 1 1 1 4.8
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 9 95 1 1 1 4.8
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 10 95 1 1 1 4.8
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*rotateabout 1 -59.3258057 2126.7522 198.524536
+*viewset -0.895439111 0.331018537 -0.297683601 0 -0.345341903 -0.0945071089 0.933706258 0 0.280940863 0.938879723 0.198939933 0 1358.32698 45.8844872 -1085.55775 1 712.843524 -22.3533867 834.384045 7.22510611
+*rotateabout 1 -1422.76001 1192.44165 38.6543999
+*viewset -0.896690423 0.336628415 -0.287450161 0 -0.377185338 -0.241169816 0.894185854 0 0.231684064 0.910229878 0.343225967 0 692.479527 691.586239 -1029.44953 1 -44.0101232 -206.543729 1591.23769 191.415448
+*startnotehistorystate {Modified ZOFFS of Element}
+*createmark elements 1 1-30
+*setvalue elems mark=1 STATUS=2 134=2.4
+*endnotehistorystate {Modified ZOFFS of Element}
+*rotateabout 1 -312.407013 2220.05298 215.128159
+*viewset -0.920612189 0.285029096 -0.266892512 0 -0.317938991 -0.15036046 0.936112456 0 0.226689206 0.946652073 0.229045535 0 985.170205 293.933637 -1091.54303 1 530.532743 -66.721126 1016.69483 51.5928454
+*rotateabout 1 -773.613785 1740.33295 -7.56414032
+*viewset -0.967870446 -0.0410065414 -0.248083176 0 -0.251330896 0.188052766 0.949457181 0 0.00771877237 0.981302512 -0.192316926 0 396.828205 -277.634225 -1103.40338 1 -1171.03455 -480.820026 2718.26212 465.691745
+*createmark elements 1 37-42 46-48 52-54
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETA={0 0 -9.334196891}
+*clearmark elements 1
+*createmark elements 1 37
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.33419689 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 38
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.33419689 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 39
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.33419689 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 40
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.33419689 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 41
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.33419689 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 42
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.33419689 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 46
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.33419689 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 47
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.33419689 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 48
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.33419689 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 52
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.33419689 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 53
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.33419689 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 54
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.33419689 0 1 0 0 0
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*createmark elements 1 37-42 46-48 52-54
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETB={0 0 -9.334196891}
+*clearmark elements 1
+*createmark elements 1 37
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.33419689
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 38
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.33419689
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 39
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.33419689
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 40
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.33419689
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 41
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.33419689
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 42
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.33419689
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 46
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.33419689
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 47
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.33419689
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 48
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.33419689
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 52
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.33419689
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 53
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.33419689
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 54
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.33419689
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*rotateabout 1 -675.6745 2089.41284 194.607239
+*viewset -0.951819609 0.0532039273 -0.302007905 0 -0.306586177 -0.143710699 0.940931534 0 0.00665948585 0.988188533 0.15309825 0 755.121862 139.952902 -1189.24564 1 730.642721 -18.0217167 816.584848 2.89343613
+*createmark elements 1 43-45 49-51 55-63
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETA={0 0 -13.52574627}
+*clearmark elements 1
+*createmark elements 1 43
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5257463 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 44
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5257463 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 45
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5257463 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 49
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5257463 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 50
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5257463 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 51
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5257463 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 55
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5257463 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 56
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5257463 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 57
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5257463 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 58
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5257463 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 59
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5257463 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 60
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5257463 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 61
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5257463 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 62
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5257463 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 63
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5257463 0 1 0 0 0
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*createmark elements 1 43-45 49-51 55-63
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETB={0 0 -13.52574627}
+*clearmark elements 1
+*createmark elements 1 43
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5257463
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 44
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5257463
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 45
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5257463
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 49
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5257463
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 50
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5257463
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 51
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5257463
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 55
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5257463
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 56
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5257463
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 57
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5257463
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 58
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5257463
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 59
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5257463
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 60
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5257463
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 61
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5257463
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 62
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5257463
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 63
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5257463
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*startnotehistorystate {Modified Dimension DIM2 of Beam Section}
+*setvalue beamsects id=4 beamsect_dim2=48
+*endnotehistorystate {Modified Dimension DIM2 of Beam Section}
+*startnotehistorystate {Modified Dimension DIM1 of Beam Section}
+*setvalue beamsects id=5 beamsect_dim1=31
+*endnotehistorystate {Modified Dimension DIM1 of Beam Section}
+*rotateabout 1 -1046.89001 1327.14551 62.5585899
+*viewset -0.958347751 0.074683182 -0.275666484 0 -0.285510873 -0.225885362 0.931374975 0 0.00728902302 0.971286891 0.237799589 0 121.424294 304.463578 -1154.28492 1 701.345359 -25.1516174 845.882211 10.0233368
+*rotateabout 1 -1154.19012 1593.39761 138.060207
+*viewset -0.951602556 0.0880510777 -0.294447931 0 -0.306260139 -0.191761738 0.932433463 0 0.0256379245 0.977483731 0.209447495 0 159.738111 264.664633 -1173.73458 1 701.345359 -25.1516174 845.882211 10.0233368
+*retainmarkselections 0
+*feoutputmergeincludefiles 0
+*setsubmodeltype "HM_INCLUDEFILES"
+*setentitytypesupportedbyenggid 1 0
+*createstringarray 8 "HM_NODEELEMS_SET_COMPRESS_SKIP " "EXPORT_DMIG_LONGFORMAT " \
+  "HMENGINEERING_XML" "HMSUBSYSTEMCOMMENTS_XML" "HMMATCOMMENTS_XML" "HMBOMCOMMENTS_XML" \
+  "INCLUDE_RELATIVE_PATH " "EXPORT_SOLVER_DECK_XML_1 "
+*feoutputwithdata "C:/Program Files/Altair/2025.1/hwdesktop/templates/feoutput/optistruct/optistruct" "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/t=4.8, TDIM2=48.0, ODIM1= 31.fem" 0 0 2 1 8
+*startnotehistorystate {Deleted Result "result1"}
+*clearmark results 1
+*createmark results 1 "result1"
+*deletemark results 1
+*endnotehistorystate {Deleted Result "result1"}
+*clearmarkall 1
+*createentity results name="result1"
+*setvalue results id=1 resultfiles= "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/t=4.8, TDIM2=48.0, ODIM1= 31.op2"
+*setvalue results id=1 init=1
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 1 95 1 1 1 4.9
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 2 95 1 1 1 4.9
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 3 95 1 1 1 4.9
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 4 95 1 1 1 4.9
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 5 95 1 1 1 4.9
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 6 95 1 1 1 4.9
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 7 95 1 1 1 4.9
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 8 95 1 1 1 4.9
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 9 95 1 1 1 4.9
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified Thickness of Components}
+*attributeupdatedouble properties 10 95 1 1 1 4.9
+*clearmark properties 1
+*endnotehistorystate {Modified Thickness of Components}
+*startnotehistorystate {Modified ZOFFS of Element}
+*createmark elements 1 1-30
+*setvalue elems mark=1 STATUS=2 134=2.45
+*endnotehistorystate {Modified ZOFFS of Element}
+*rotateabout 1 -807.817993 1832.875 146.858307
+*viewset -0.947995007 0.091072562 -0.304977467 0 -0.3159045 -0.152249762 0.936495786 0 0.0388563238 0.984137083 0.173102246 0 555.049416 209.395723 -1184.34865 1 722.512291 -20.0003646 824.715279 4.87208399
+*rotateabout 1 -1252.09998 1883.229 155.737
+*viewset -0.963864412 -0.0477161822 -0.262085027 0 -0.266350742 0.15503205 0.951326624 0 -0.00476209546 0.986756418 -0.162139117 0 -62.0521793 -747.923393 -1106.36341 1 -861.634031 -405.523318 2408.8616 390.395037
+*createmark elements 1 37-42 46-48 52-54
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETA={0 0 -8.815508021}
+*clearmark elements 1
+*createmark elements 1 37
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -8.81550802 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 38
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -8.81550802 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 39
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -8.81550802 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 40
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -8.81550802 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 41
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -8.81550802 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 42
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -8.81550802 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 46
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -8.81550802 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 47
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -8.81550802 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 48
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -8.81550802 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 52
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -8.81550802 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 53
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -8.81550802 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 54
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -8.81550802 0 1 0 0 0
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*createmark elements 1 37-42 46-48 52-54
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETB={0 0 -8.815508021}
+*clearmark elements 1
+*createmark elements 1 37
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -8.81550802
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 38
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -8.81550802
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 39
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -8.81550802
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 40
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -8.81550802
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 41
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -8.81550802
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 42
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -8.81550802
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 46
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -8.81550802
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 47
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -8.81550802
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 48
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -8.81550802
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 52
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -8.81550802
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 53
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -8.81550802
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 54
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -8.81550802
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*createmark elements 1 43-45 49-51 55-63
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETA={0 0 -13.59656772}
+*clearmark elements 1
+*createmark elements 1 43
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5965677 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 44
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5965677 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 45
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5965677 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 49
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5965677 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 50
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5965677 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 51
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5965677 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 55
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5965677 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 56
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5965677 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 57
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5965677 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 58
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5965677 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 59
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5965677 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 60
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5965677 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 61
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5965677 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 62
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5965677 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 63
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -13.5965677 0 1 0 0 0
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*rotateabout 1 -116.896484 2289.82202 227.430237
+*viewset -0.957077639 0.0451597072 -0.286291797 0 -0.289828122 -0.144242027 0.946146869 0 0.00143240639 0.988511426 0.151139372 0 1250.43566 114.64881 -1168.58138 1 671.410796 -32.4365889 875.816773 17.3083083
+*createmark elements 1 43-45 49-51 55-63
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETB={0 0 13.59656772}
+*clearmark elements 1
+*createmark elements 1 43
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 44
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 45
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 49
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 50
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 51
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 55
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 56
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 57
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 58
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 59
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 60
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 61
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 62
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 63
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 13.5965677
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*createmark elements 1 43-45 49-51 55-63
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETB={0 0 -13.59656772}
+*clearmark elements 1
+*createmark elements 1 43
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 44
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 45
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 49
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 50
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 51
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 55
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 56
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 57
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 58
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 59
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 60
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 61
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 62
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5965677
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 63
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -13.5965677
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*startnotehistorystate {Modified Thickness DIM4 of Beam Section}
+*setvalue beamsects id=4 beamsect_dim4=1.9
+*endnotehistorystate {Modified Thickness DIM4 of Beam Section}
+*rotateabout 1 -85.3080444 2250.43872 220.485931
+*startnotehistorystate {Modified Thickness DIM2 of Beam Section}
+*setvalue beamsects id=5 beamsect_dim2=2.1
+*endnotehistorystate {Modified Thickness DIM2 of Beam Section}
+*viewset -0.960569691 0.0512285347 -0.273279171 0 -0.278016227 -0.164299762 0.946420924 0 0.00358405449 0.985079299 0.172063736 0 1270.32586 150.278298 -1172.70157 1 722.512291 -20.0003646 824.715279 4.87208399
+*rotateabout 1 -56.0639992 2102.33398 194.371292
+*viewset -0.949236832 0.0628427408 -0.308221067 0 -0.313837064 -0.122702395 0.94151496 0 0.0213479176 0.990451873 0.136196014 0 1358.79957 62.735882 -1157.37492 1 743.228655 -14.9587635 803.998915 -0.169517094
+*retainmarkselections 0
+*feoutputmergeincludefiles 0
+*setsubmodeltype "HM_INCLUDEFILES"
+*setentitytypesupportedbyenggid 1 0
+*createstringarray 8 "HM_NODEELEMS_SET_COMPRESS_SKIP " "EXPORT_DMIG_LONGFORMAT " \
+  "HMENGINEERING_XML" "HMSUBSYSTEMCOMMENTS_XML" "HMMATCOMMENTS_XML" "HMBOMCOMMENTS_XML" \
+  "INCLUDE_RELATIVE_PATH " "EXPORT_SOLVER_DECK_XML_1 "
+*feoutputwithdata "C:/Program Files/Altair/2025.1/hwdesktop/templates/feoutput/optistruct/optistruct" "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/t=4.9, TDIM2=48.0, TDIM4=1.9, ODIM1= 31, ODIM2 = 2.4.fem" 0 0 2 1 8
+*startnotehistorystate {Deleted Result "result1"}
+*clearmark results 1
+*createmark results 1 "result1"
+*deletemark results 1
+*endnotehistorystate {Deleted Result "result1"}
+*clearmarkall 1
+*createentity results name="result1"
+*setvalue results id=1 resultfiles= "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/t=4.9, TDIM2=48.0, TDIM4=1.9, ODIM1= 31, ODIM2 = 2.4.op2"
+*setvalue results id=1 init=1
+*writefile "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/SuperPanel_AS_Project_Part2_submitted_start_3766785.fem.hm" 1
+*startnotehistorystate {Modified Thickness DIM4 of Beam Section}
+*setvalue beamsects id=4 beamsect_dim4=2
+*endnotehistorystate {Modified Thickness DIM4 of Beam Section}
+*rotateabout 1 -632.196716 1920.23535 162.262299
+*viewset -0.956733539 0.0589788881 -0.2849253 0 -0.289982331 -0.112841871 0.950356228 0 0.0238994498 0.99186098 0.125062438 0 733.016827 79.3632174 -1157.81817 1 730.642721 -18.0217167 816.584848 2.89343613
+*setvalue elems id=37 STATUS=2 OS_ELEMS_LOCAL_OFFSETA={0 0 -9.078947368}
+*clearmark elements 1
+*createmark elements 1 37
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.07894737 0 1 0 0 0
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*setvalue elems id=37 STATUS=2 3511={        }
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*mergehistorystate "" ""
+*startnotehistorystate {Attached attributes to Element}
+*setvalue elems id=37 STATUS=0 4842="GGG"
+*setvalue elems id=37 STATUS=2 3240=1
+*endnotehistorystate {Attached attributes to Element}
+*mergehistorystate "" ""
+*createmark elements 1 37-42 46-48 52-54
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETA={0 0 -9.078947368}
+*clearmark elements 1
+*createmark elements 1 37
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.07894737 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 38
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.07894737 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 39
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.07894737 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 40
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.07894737 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 41
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.07894737 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 42
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.07894737 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 46
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.07894737 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 47
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.07894737 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 48
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.07894737 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 52
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.07894737 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 53
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.07894737 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 54
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.07894737 0 1 0 0 0
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*createmark elements 1 37-42 46-48 52-54
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETB={0 0 -9.078947368}
+*clearmark elements 1
+*createmark elements 1 37
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.07894737
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 38
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.07894737
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 39
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.07894737
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 40
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.07894737
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 41
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.07894737
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 42
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.07894737
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 46
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.07894737
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 47
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.07894737
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 48
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.07894737
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 52
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.07894737
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 53
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.07894737
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 54
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.07894737
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*retainmarkselections 0
+*feoutputmergeincludefiles 0
+*setsubmodeltype "HM_INCLUDEFILES"
+*setentitytypesupportedbyenggid 1 0
+*createstringarray 8 "HM_NODEELEMS_SET_COMPRESS_SKIP " "EXPORT_DMIG_LONGFORMAT " \
+  "HMENGINEERING_XML" "HMSUBSYSTEMCOMMENTS_XML" "HMMATCOMMENTS_XML" "HMBOMCOMMENTS_XML" \
+  "INCLUDE_RELATIVE_PATH " "EXPORT_SOLVER_DECK_XML_1 "
+*feoutputwithdata "C:/Program Files/Altair/2025.1/hwdesktop/templates/feoutput/optistruct/optistruct" "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/t=4.9, TDIM2=48.0, TDIM4=2.0, ODIM1= 31, ODIM2 = 2.4.fem" 0 0 2 1 8
+*startnotehistorystate {Deleted Result "result1"}
+*clearmark results 1
+*createmark results 1 "result1"
+*deletemark results 1
+*endnotehistorystate {Deleted Result "result1"}
+*clearmarkall 1
+*createentity results name="result1"
+*setvalue results id=1 resultfiles= "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/t=4.9, TDIM2=48.0, TDIM4=2.0, ODIM1= 31, ODIM2 = 2.4.h3d"
+*setvalue results id=1 init=1
