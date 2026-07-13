@@ -330,3 +330,17 @@ return; # Stop script and return to application
 *createentity results name="result1"
 *setvalue results id=1 resultfiles= "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/Anal4.h3d"
 *setvalue results id=1 init=1
+*setoption topofacecolor=11
+*setoption topofacecolor=10
+*setoption topofacecolor=4
+*startnotehistorystate {Deleted Result "result1"}
+*clearmark results 1
+*createmark results 1 "result1"
+*deletemark results 1
+*endnotehistorystate {Deleted Result "result1"}
+*clearmarkall 1
+*createentity results name="result1"
+*setvalue results id=1 resultfiles= "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis1.h3d"
+*setvalue results id=1 init=1
+*rotateabout 1 -312.407013 2219.18481 220.052261
+*viewset 0.882415886 0.160385088 -0.442288173 0 -0.434992656 -0.0800056841 -0.896872611 0 -0.179230561 0.983806746 -0.000831951274 0 -63.1998425 131.846759 3712.74515 1 -2883.6759 -706.790976 -596.989998 691.662696
