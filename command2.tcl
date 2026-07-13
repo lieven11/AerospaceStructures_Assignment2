@@ -570,3 +570,172 @@ return; # Stop script and return to application
 *createentity results name="result1"
 *setvalue results id=1 resultfiles= "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/TDIM4 2.1 to 3.op2"
 *setvalue results id=1 init=1
+*rotateabout 1 -1252.09998 1883.229 155.736954
+*viewset -0.796239531 0.069207112 0.601009971 0 0.507375955 -0.464683667 0.725698787 0 0.329503034 0.88276807 0.334885481 0 -1459.02852 788.81364 171.34742 1 195.466375 -148.263957 1351.76119 133.135676
+*rotateabout 1 -1252.09998 1883.229 155.736954
+*viewset -0.930246228 0.124715988 0.345091115 0 0.167913334 -0.691533923 0.702556721 0 0.326262268 0.711496139 0.622355346 0 -987.027744 1312.20065 -150.276443 1 195.466375 -148.263957 1351.76119 133.135676
+*createmark elements 1 37-42 46-48 52-54
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETA={0 0 -11.37179487}
+*clearmark elements 1
+*createmark elements 1 37
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -11.3717949 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 38
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -11.3717949 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 39
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -11.3717949 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 40
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -11.3717949 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 41
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -11.3717949 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 42
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -11.3717949 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 46
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -11.3717949 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 47
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -11.3717949 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 48
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -11.3717949 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 52
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -11.3717949 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 53
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -11.3717949 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 54
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -11.3717949 0 1 0 0 0
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*createmark elements 1 37-42 46-48 52-54
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETB={0 0 -11.37179487}
+*clearmark elements 1
+*createmark elements 1 37
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -11.3717949
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 38
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -11.3717949
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 39
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -11.3717949
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 40
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -11.3717949
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 41
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -11.3717949
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 42
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -11.3717949
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 46
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -11.3717949
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 47
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -11.3717949
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 48
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -11.3717949
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 52
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -11.3717949
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 53
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -11.3717949
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 54
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -11.3717949
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*rotateabout 1 -688.283997 2085.323 191.371658
+*viewset -0.833544887 0.523311693 0.177053077 0 0.0374278882 -0.26625682 0.963175196 0 0.551182432 0.809476483 0.20235056 0 -48.48138 737.531429 -729.031023 1 652.073264 -37.1426331 895.154306 22.0143525
+*startnotehistorystate {Modified Dimension DIM2 of Beam Section}
+*setvalue beamsects id=4 beamsect_dim2=55
+*endnotehistorystate {Modified Dimension DIM2 of Beam Section}
+*startnotehistorystate {Modified Dimension DIM2 of Beam Section}
+*setvalue beamsects id=4 beamsect_dim2=50
+*endnotehistorystate {Modified Dimension DIM2 of Beam Section}
+*startnotehistorystate {Modified Dimension DIM2 of Beam Section}
+*setvalue beamsects id=4 beamsect_dim2=55
+*endnotehistorystate {Modified Dimension DIM2 of Beam Section}
+*startnotehistorystate {Modified Thickness DIM4 of Beam Section}
+*setvalue beamsects id=4 beamsect_dim4=2.1
+*endnotehistorystate {Modified Thickness DIM4 of Beam Section}
+*rotateabout 1 -1440.04004 1815.86401 143.858749
+*viewset -0.829442821 0.539190443 0.145939277 0 0.0246296803 -0.225706886 0.973883864 0 0.558048372 0.811375417 0.173930868 0 -594.541252 1052.21562 -789.193204 1 687.671658 -28.4792932 859.555911 13.3510126
+*retainmarkselections 0
+*feoutputmergeincludefiles 0
+*setsubmodeltype "HM_INCLUDEFILES"
+*setentitytypesupportedbyenggid 1 0
+*createstringarray 8 "HM_NODEELEMS_SET_COMPRESS_SKIP " "EXPORT_DMIG_LONGFORMAT " \
+  "HMENGINEERING_XML" "HMSUBSYSTEMCOMMENTS_XML" "HMMATCOMMENTS_XML" "HMBOMCOMMENTS_XML" \
+  "INCLUDE_RELATIVE_PATH " "EXPORT_SOLVER_DECK_XML_1 "
+*feoutputwithdata "C:/Program Files/Altair/2025.1/hwdesktop/templates/feoutput/optistruct/optistruct" "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/TDIM2 42 to 55, t=5.fem" 0 0 2 1 8
+*startnotehistorystate {Deleted Result "result1"}
+*clearmark results 1
+*createmark results 1 "result1"
+*deletemark results 1
+*endnotehistorystate {Deleted Result "result1"}
+*clearmarkall 1
+*createentity results name="result1"
+*setvalue results id=1 resultfiles= "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/TDIM2 42 to 55, t=5.op2"
+*setvalue results id=1 init=1
