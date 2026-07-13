@@ -12,7 +12,7 @@
     "DIM1_mm": 65.0,
     "DIM2_mm": 42.0,
     "DIM3_mm": 3.0,
-    "DIM4_mm": 2.1
+    "DIM4_mm": 3.0
   },
   "omega_stringer": {
     "count": 5,
@@ -25,13 +25,5 @@
     "effective_width_mm": 200.0,
     "length_mm": 600.0,
     "effective_length_factor": 1.0
-  },
-  "model_offsets": {
-    "panel_offsets_mm": [
-      1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
-    ],
-    "stringer_offsets_mm": [
-      3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0
-    ]
   }
 }

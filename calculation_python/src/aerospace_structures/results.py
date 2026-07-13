@@ -49,7 +49,11 @@ def build_results_final_matrix(
         matrix[row_index][2] = offset
 
     t_stringer_ids = set(layout["t_section_stringer_ids"])
-    offsets = stringer_offsets_mm(geometry, len(layout["stringer_element_groups"]))
+    offsets = stringer_offsets_mm(
+        geometry,
+        t_stringer_ids,
+        len(layout["stringer_element_groups"]),
+    )
     for stringer_id, row_index, offset in zip(range(1, len(offsets) + 1), range(31, 40), offsets):
         section_key = "t_stringer" if stringer_id in t_stringer_ids else "omega_stringer"
         section = geometry[section_key]

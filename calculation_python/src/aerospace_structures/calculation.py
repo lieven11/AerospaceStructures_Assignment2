@@ -171,6 +171,10 @@ def run_calculation(project_root: Path, *, record_history: bool = False) -> dict
                 "total_mass_kg": "density_tonne_per_mm3 * total_volume_mm3 * 1000",
                 "note": "Geometry-derived Mass_computed logic; FE extracted volumes are not used for mass.",
             },
+            "element_offsets": {
+                "panel_offset_mm": "panel_thickness / 2",
+                "stringer_offset_mm": "stringer-only z_EC = stringer first moment / stringer area, excluding adjacent panel skin",
+            },
             "panel_buckling": {
                 "sigma_e": "E_b*pi^2/(12*(1-nu^2))*(t/b)^2",
                 "k_tau": "5.34 + 4/alpha^2",

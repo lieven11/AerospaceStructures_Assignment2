@@ -20,10 +20,12 @@ sys.path.insert(0, str(PROJECT_ROOT / "src"))
 from aerospace_structures.calculation import run_calculation  # noqa: E402
 from aerospace_structures.cli import confirm_thickness_violations, run_cli  # noqa: E402
 from aerospace_structures.geometry import (  # noqa: E402
+    omega_stringer_centroid_z_mm,
     panel_offsets_mm,
     panel_volumes_mm3,
     stringer_offsets_mm,
     stringer_volumes_mm3,
+    t_stringer_centroid_z_mm,
 )
 from aerospace_structures.history import COMPARISON_FILE_NAME, MAX_HISTORY_RECORDS  # noqa: E402
 from aerospace_structures.io import load_query_stresses, write_analysis_stresses  # noqa: E402
@@ -75,31 +77,47 @@ class WorkbookMigrationRegressionTest(unittest.TestCase):
         self.assertEqual(actual[104][0], "Stability Analysis - Panel Buckling")
         self.assertEqual(actual[119][0], "Stability Analysis - Column Buckling")
 
-    def test_geometry_dimensions_and_placeholder_offsets_are_exported(self) -> None:
+    def test_geometry_dimensions_and_computed_offsets_are_exported(self) -> None:
         actual = self.result["results_final"]
-        self.assertEqual(actual[20][1:3], [5.0, 1.0])
-        self.assertEqual(actual[31][1:4], [2.1, 42.0, 3.0])  # T stringer 1
-        self.assertEqual(actual[33][1:4], [2.4, 28.0, 3.0])  # Omega stringer 3
+        self.assertEqual(actual[20][1:3], [5.0, 2.5])
+        self.assertEqual(actual[31][1:3], [2.1, 42.0])  # T stringer 1
+        self.assertTrue(math.isclose(actual[31][3], 7.711267605633804, rel_tol=1e-14))
+        self.assertEqual(actual[33][1:3], [2.4, 28.0])  # Omega stringer 3
+        self.assertTrue(math.isclose(actual[33][3], 12.128063241106721, rel_tol=1e-14))
 
     def test_mass_uses_geometry_derived_workbook_mass_computed(self) -> None:
         self.assertTrue(math.isclose(self.result["mass_kg"], 19.961640000000003, rel_tol=1e-14))
 
-    def test_model_offsets_are_geometry_derived(self) -> None:
+    def test_element_offsets_are_calculated_from_current_geometry(self) -> None:
         geometry = json.loads((PROJECT_ROOT / "inputs" / "geometry.json").read_text(encoding="utf-8"))
         layout = json.loads((PROJECT_ROOT / "inputs" / "layout.json").read_text(encoding="utf-8"))
+        t_section_ids = set(layout["t_section_stringer_ids"])
+        stringer_count = len(layout["stringer_element_groups"])
 
         self.assertEqual(panel_offsets_mm(geometry)[0], self.result["results_final"][20][2])
         self.assertEqual(
-            stringer_offsets_mm(geometry, len(layout["stringer_element_groups"]))[0],
+            stringer_offsets_mm(geometry, t_section_ids, stringer_count)[0],
             self.result["results_final"][31][3],
         )
+        self.assertTrue(
+            math.isclose(t_stringer_centroid_z_mm(geometry), 2135.25 / 276.9, rel_tol=1e-14)
+        )
+        self.assertTrue(
+            math.isclose(
+                omega_stringer_centroid_z_mm(geometry),
+                2945.664 / 242.88,
+                rel_tol=1e-14,
+            )
+        )
 
-        geometry["model_offsets"]["panel_offsets_mm"][0] = 2.5
-        geometry["model_offsets"]["stringer_offsets_mm"][0] = 4.5
-        self.assertEqual(panel_offsets_mm(geometry)[0], 2.5)
-        self.assertEqual(
-            stringer_offsets_mm(geometry, len(layout["stringer_element_groups"]))[0],
-            4.5,
+        geometry["skin"]["panel_thicknesses_mm"][0] = 6.0
+        self.assertEqual(panel_offsets_mm(geometry)[0], 3.0)
+        self.assertTrue(
+            math.isclose(
+                omega_stringer_centroid_z_mm(geometry),
+                2945.664 / 242.88,
+                rel_tol=1e-14,
+            )
         )
 
     def test_stress_averaging_uses_geometry_derived_volumes(self) -> None:

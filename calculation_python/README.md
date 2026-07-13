@@ -50,7 +50,7 @@ the previous, best, worst, and average retained previous values.
 
 ## Inputs
 
-- `inputs/geometry.json`: ten individually editable panel thicknesses plus T-stringer, omega-stringer, column geometry, and FE model offsets exported to the submission template
+- `inputs/geometry.json`: ten individually editable panel thicknesses plus T-stringer, omega-stringer, and column geometry
 - `inputs/materials.json`: E, E B-basis, strengths, density, Poisson ratio, and ultimate load factor
 - `inputs/layout.json`: panel/stringer element groups, section assignments, excluded spar IDs, and any extra blank stress-table IDs
 - `../Results_Querey/Stresses.csv`: panel XX/XY/YY for elements 1-30, with load case 1 followed by load case 2
@@ -75,6 +75,12 @@ transition slenderness are recalculated from the current `geometry.json`
 dimensions for every run. The stress-volume averaging and mass calculation also
 derive their volumes from `geometry.json`; copied finite-element volume tables
 are not used.
+
+The FE model offsets exported in `Results_final` are derived from geometry:
+panel offsets are `panel_thickness / 2`, and stringer offsets are the
+stringer-only `z_EC` centroid using the stringer first moment divided by the
+stringer area. Adjacent panel skin is not included in the exported stringer
+offset.
 
 Units follow the assignment convention: mm, tonne, s, N, mJ, MPa, and tonne/mm³. Exported mass is in kg.
 
