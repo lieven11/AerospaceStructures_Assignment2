@@ -344,3 +344,20 @@ return; # Stop script and return to application
 *setvalue results id=1 init=1
 *rotateabout 1 -312.407013 2219.18481 220.052261
 *viewset 0.882415886 0.160385088 -0.442288173 0 -0.434992656 -0.0800056841 -0.896872611 0 -0.179230561 0.983806746 -0.000831951274 0 -63.1998425 131.846759 3712.74515 1 -2883.6759 -706.790976 -596.989998 691.662696
+*retainmarkselections 0
+*feoutputmergeincludefiles 0
+*setsubmodeltype "HM_INCLUDEFILES"
+*setentitytypesupportedbyenggid 1 0
+*createstringarray 8 "HM_NODEELEMS_SET_COMPRESS_SKIP " "EXPORT_DMIG_LONGFORMAT " \
+  "HMENGINEERING_XML" "HMSUBSYSTEMCOMMENTS_XML" "HMMATCOMMENTS_XML" "HMBOMCOMMENTS_XML" \
+  "INCLUDE_RELATIVE_PATH " "EXPORT_SOLVER_DECK_XML_1 "
+*feoutputwithdata "C:/Program Files/Altair/2025.1/hwdesktop/templates/feoutput/optistruct/optistruct" "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/thickness_3.9to5.fem" 0 0 2 1 8
+*startnotehistorystate {Deleted Result "result1"}
+*clearmark results 1
+*createmark results 1 "result1"
+*deletemark results 1
+*endnotehistorystate {Deleted Result "result1"}
+*clearmarkall 1
+*createentity results name="result1"
+*setvalue results id=1 resultfiles= "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/thickness_3.9to5.op2"
+*setvalue results id=1 init=1
