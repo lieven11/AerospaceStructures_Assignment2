@@ -19,13 +19,43 @@ sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from aerospace_structures.calculation import run_calculation  # noqa: E402
 from aerospace_structures.cli import confirm_thickness_violations, run_cli  # noqa: E402
+from aerospace_structures.geometry import (  # noqa: E402
+    panel_offsets_mm,
+    panel_volumes_mm3,
+    stringer_offsets_mm,
+    stringer_volumes_mm3,
+)
 from aerospace_structures.history import COMPARISON_FILE_NAME, MAX_HISTORY_RECORDS  # noqa: E402
-from aerospace_structures.io import load_query_stresses  # noqa: E402
+from aerospace_structures.io import load_query_stresses, write_analysis_stresses  # noqa: E402
 from aerospace_structures.mass import calculate_geometry_mass  # noqa: E402
 from aerospace_structures.models import AveragedPanelStress  # noqa: E402
 from aerospace_structures.panel_buckling import calculate_panel_buckling  # noqa: E402
 from aerospace_structures.reporting import reserve_factor_passes  # noqa: E402
 from aerospace_structures.sections import calculate_t_section  # noqa: E402
+
+
+PANEL_ELEMENT_IDS = tuple(range(1, 31))
+STRINGER_ELEMENT_IDS = tuple(range(37, 64))
+ANALYSIS_STRESS_ROW_IDS = (*range(1, 64), 65)
+
+
+def _panel_results_query_block() -> str:
+    rows = ["Elements,FileID,Loadcase,Step,Layer,XX,XY,YY,"]
+    for loadcase in (1, 2):
+        for element_id in range(1, 31):
+            base = loadcase * 1000 + element_id
+            rows.append(
+                f"{element_id},2,{loadcase},0,average,{base + 0.1},{base + 0.2},{base + 0.3},"
+            )
+    return "\n".join(rows)
+
+
+def _axial_results_query_block(value_header: str) -> str:
+    rows = [f"Elements,FileID,Loadcase,Step,{value_header},"]
+    for loadcase in (1, 2):
+        for element_id in range(37, 64):
+            rows.append(f"{element_id},2,{loadcase},0,{-loadcase * 1000 - element_id},")
+    return "\n".join(rows)
 
 
 class WorkbookMigrationRegressionTest(unittest.TestCase):
@@ -47,12 +77,48 @@ class WorkbookMigrationRegressionTest(unittest.TestCase):
 
     def test_geometry_dimensions_and_placeholder_offsets_are_exported(self) -> None:
         actual = self.result["results_final"]
-        self.assertEqual(actual[20][1:3], [3.9, 1.0])
+        self.assertEqual(actual[20][1:3], [5.0, 1.0])
         self.assertEqual(actual[31][1:4], [2.1, 42.0, 3.0])  # T stringer 1
         self.assertEqual(actual[33][1:4], [2.4, 28.0, 3.0])  # Omega stringer 3
 
     def test_mass_uses_geometry_derived_workbook_mass_computed(self) -> None:
-        self.assertTrue(math.isclose(self.result["mass_kg"], 16.397640000000003, rel_tol=1e-14))
+        self.assertTrue(math.isclose(self.result["mass_kg"], 19.961640000000003, rel_tol=1e-14))
+
+    def test_model_offsets_are_geometry_derived(self) -> None:
+        geometry = json.loads((PROJECT_ROOT / "inputs" / "geometry.json").read_text(encoding="utf-8"))
+        layout = json.loads((PROJECT_ROOT / "inputs" / "layout.json").read_text(encoding="utf-8"))
+
+        self.assertEqual(panel_offsets_mm(geometry)[0], self.result["results_final"][20][2])
+        self.assertEqual(
+            stringer_offsets_mm(geometry, len(layout["stringer_element_groups"]))[0],
+            self.result["results_final"][31][3],
+        )
+
+        geometry["model_offsets"]["panel_offsets_mm"][0] = 2.5
+        geometry["model_offsets"]["stringer_offsets_mm"][0] = 4.5
+        self.assertEqual(panel_offsets_mm(geometry)[0], 2.5)
+        self.assertEqual(
+            stringer_offsets_mm(geometry, len(layout["stringer_element_groups"]))[0],
+            4.5,
+        )
+
+    def test_stress_averaging_uses_geometry_derived_volumes(self) -> None:
+        geometry = json.loads((PROJECT_ROOT / "inputs" / "geometry.json").read_text(encoding="utf-8"))
+        layout = json.loads((PROJECT_ROOT / "inputs" / "layout.json").read_text(encoding="utf-8"))
+
+        panels = panel_volumes_mm3(geometry)
+        stringers = stringer_volumes_mm3(
+            geometry,
+            set(layout["t_section_stringer_ids"]),
+            len(layout["stringer_element_groups"]),
+        )
+
+        self.assertEqual(panels[0], 600000.0)
+        self.assertEqual(stringers[0], 166140.0)
+        self.assertEqual(stringers[2], 145728.0)
+
+        geometry["skin"]["panel_thicknesses_mm"][0] = 6.0
+        self.assertEqual(panel_volumes_mm3(geometry)[0], 720000.0)
 
     def test_input_uses_first_results_query_block(self) -> None:
         stresses = self.result["ordered_stresses"]
@@ -61,19 +127,8 @@ class WorkbookMigrationRegressionTest(unittest.TestCase):
         self.assertEqual([item["element_id"] for item in stresses[-2:]], [62, 63])
 
     def test_repeated_results_query_blocks_are_ignored(self) -> None:
-        panel_rows = ["Elements,FileID,Loadcase,Step,Layer,XX,XY,YY,"]
-        axial_rows = ["Elements,FileID,Loadcase,Step,1D Stress:CBAR Axial,"]
-        for loadcase in (1, 2):
-            for element_id in range(1, 31):
-                base = loadcase * 1000 + element_id
-                panel_rows.append(
-                    f"{element_id},2,{loadcase},0,average,{base + 0.1},{base + 0.2},{base + 0.3},"
-                )
-            for element_id in range(37, 64):
-                axial_rows.append(f"{element_id},2,{loadcase},0,{-loadcase * 1000 - element_id},")
-
-        first_panel_block = "\n".join(panel_rows)
-        first_axial_block = "\n".join(axial_rows)
+        first_panel_block = _panel_results_query_block()
+        first_axial_block = _axial_results_query_block("1D Stress:CBAR Axial")
         conflicting_panel_block = first_panel_block.replace("1001.1", "9999", 1)
         conflicting_axial_block = first_axial_block.replace("-1037", "9999", 1)
 
@@ -89,10 +144,78 @@ class WorkbookMigrationRegressionTest(unittest.TestCase):
                 f"{first_axial_block}\n{conflicting_axial_block}",
                 encoding="utf-8",
             )
-            stresses = load_query_stresses(stresses_path, axial_path)
+            stresses = load_query_stresses(
+                stresses_path,
+                axial_path,
+                PANEL_ELEMENT_IDS,
+                STRINGER_ELEMENT_IDS,
+            )
 
         self.assertEqual(stresses[1].panel_xx_case1, 1001.1)
         self.assertEqual(stresses[37].stringer_axial_case1, -1037.0)
+
+    def test_axial_reader_accepts_current_cbar_cbeam_header(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_path = Path(temporary_directory)
+            stresses_path = temporary_path / "Stresses.csv"
+            axial_path = temporary_path / "Axial.csv"
+            stresses_path.write_text(_panel_results_query_block(), encoding="utf-8")
+            axial_path.write_text(
+                _axial_results_query_block("Element Stresses (1D):CBAR/CBEAM Axial Stress"),
+                encoding="utf-8",
+            )
+            stresses = load_query_stresses(
+                stresses_path,
+                axial_path,
+                PANEL_ELEMENT_IDS,
+                STRINGER_ELEMENT_IDS,
+            )
+
+        self.assertEqual(stresses[37].stringer_axial_case1, -1037.0)
+        self.assertEqual(stresses[63].stringer_axial_case2, -2063.0)
+
+    def test_analysis_stresses_export_keeps_legacy_copy_layout(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_path = Path(temporary_directory)
+            stresses_path = temporary_path / "Stresses.csv"
+            axial_path = temporary_path / "Axial.csv"
+            output_path = temporary_path / "analysis_stresses.csv"
+            stresses_path.write_text(_panel_results_query_block(), encoding="utf-8")
+            axial_path.write_text(_axial_results_query_block("1D Stress:CBAR Axial"), encoding="utf-8")
+
+            stresses = load_query_stresses(
+                stresses_path,
+                axial_path,
+                PANEL_ELEMENT_IDS,
+                STRINGER_ELEMENT_IDS,
+            )
+            write_analysis_stresses(output_path, stresses, ANALYSIS_STRESS_ROW_IDS)
+
+            with output_path.open(newline="", encoding="utf-8") as handle:
+                rows = list(csv.reader(handle))
+
+        self.assertEqual(
+            rows[0],
+            [
+                "ID",
+                "Panel, XX, Case 1",
+                "Panel, XX, Case 2",
+                "Panel, XY, Case 1",
+                "Panel, XY, Case 2",
+                "Panel, YY, Case 1",
+                "Panel, YY, Case 2",
+                "Stringer, 1D, Case 1",
+                "Stringer, 1D, Case 2",
+            ],
+        )
+        self.assertEqual(len(rows), 65)
+        self.assertEqual(
+            rows[1],
+            ["1", "1001.1", "2001.1", "1001.2", "2001.2", "1001.3", "2001.3", "", ""],
+        )
+        self.assertEqual(rows[31], ["31", "", "", "", "", "", "", "", ""])
+        self.assertEqual(rows[37], ["37", "", "", "", "", "", "", "-1037.0", "-2037.0"])
+        self.assertEqual(rows[-1], ["65", "", "", "", "", "", "", "", ""])
 
     def test_xlsx_contains_only_results_final(self) -> None:
         path = PROJECT_ROOT / "outputs" / "Results_final.xlsx"
@@ -109,7 +232,7 @@ class WorkbookMigrationRegressionTest(unittest.TestCase):
         namespace = {"x": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
         cells = {cell.attrib["r"]: cell for cell in root.findall(".//x:c", namespace)}
         self.assertEqual(cells["B46"].attrib["s"], "2")  # RF > 1: green
-        self.assertEqual(cells["O108"].attrib["s"], "3")  # RF <= 1: red
+        self.assertEqual(cells["D123"].attrib["s"], "3")  # RF <= 1: red
 
     def test_thickness_guard_cannot_be_overridden(self) -> None:
         geometry = {

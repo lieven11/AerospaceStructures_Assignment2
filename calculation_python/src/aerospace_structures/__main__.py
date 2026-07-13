@@ -7,7 +7,7 @@ from .cli import run_cli
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run the standalone Assignment 1 structural calculations.")
+    parser = argparse.ArgumentParser(description="Run the standalone Assignment 2 structural calculations.")
     parser.add_argument(
         "--project-root",
         type=Path,

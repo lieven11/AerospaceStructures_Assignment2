@@ -1,6 +1,6 @@
 # Standalone Aerospace Structures Calculation
 
-This project is a standalone Python migration of `Calculation.xlsx`. The source workbook is not read at runtime. Baseline geometry, material data, element volumes, and grouping are stored in `inputs/`; current HyperMesh stresses are read from `../Results_Querey/`.
+This project is a standalone Python migration of `Calculation.xlsx`. The source workbook is not read at runtime. Baseline geometry, material data, and grouping are stored in `inputs/`; current HyperMesh stresses are read from `../Results_Querey/`.
 
 The numerical operations intentionally reproduce the workbook as implemented. No engineering equations, constants, signs, mappings, safety factors, or workbook-specific choices were corrected or reinterpreted.
 
@@ -35,6 +35,11 @@ Generated files:
 - `outputs/column_buckling_results.csv`: combined stresses, critical stresses, and RFs
 - `outputs/mass_breakdown.csv`: geometry area → volume → density → mass calculation
 
+Each calculation run also refreshes `inputs/analysis_stresses.csv` from the
+current `../Results_Querey/Stresses.csv` and `../Results_Querey/Axial.csv`
+files after stress import succeeds. That CSV keeps the old clean copy/paste
+layout, but the calculation uses the Results Query files directly.
+
 Each successful `python3 run.py` run also updates
 `outputs/run_comparison.csv`. The official `outputs/Results_final.csv` and
 `outputs/Results_final.xlsx` files keep the same names and locations, while
@@ -45,12 +50,12 @@ the previous, best, worst, and average retained previous values.
 
 ## Inputs
 
-- `inputs/geometry.json`: ten individually editable panel thicknesses plus T-stringer, omega-stringer, and column geometry
+- `inputs/geometry.json`: ten individually editable panel thicknesses plus T-stringer, omega-stringer, column geometry, and FE model offsets exported to the submission template
 - `inputs/materials.json`: E, E B-basis, strengths, density, Poisson ratio, and ultimate load factor
-- `inputs/layout.json`: panel/stringer element groups and section assignments
+- `inputs/layout.json`: panel/stringer element groups, section assignments, excluded spar IDs, and any extra blank stress-table IDs
 - `../Results_Querey/Stresses.csv`: panel XX/XY/YY for elements 1-30, with load case 1 followed by load case 2
 - `../Results_Querey/Axial.csv`: stringer axial stress for elements 37-63, with load case 1 followed by load case 2
-- `inputs/element_volumes.csv`: copied finite-element volumes
+- `inputs/analysis_stresses.csv`: regenerated clean stress table for manual inspection/copying
 
 The reader consumes exactly the first complete two-load-case block from each Results Query file. Any duplicate blocks appended by HyperMesh are ignored.
 
@@ -65,13 +70,19 @@ The list must contain exactly ten numeric values and every value must be at leas
 affects the combined section and column-buckling calculation of stringers `i-1`
 and `i` where those adjacent stringers exist.
 
+The section properties exported as `I_y`, radius of gyration, slenderness, and
+transition slenderness are recalculated from the current `geometry.json`
+dimensions for every run. The stress-volume averaging and mass calculation also
+derive their volumes from `geometry.json`; copied finite-element volume tables
+are not used.
+
 Units follow the assignment convention: mm, tonne, s, N, mJ, MPa, and tonne/mm³. Exported mass is in kg.
 
 ## Calculation modules
 
 - `stress_processing.py`: workbook stress-component reordering and absolute shear handling
 - `strength.py`: von Mises/axial strength reserve factors
-- `averaging.py`: element-volume-weighted panel and stringer stresses
+- `averaging.py`: geometry-volume-weighted panel and stringer stresses
 - `mass.py`: geometry-derived skin/stringer areas, volumes, and mass (`Mass_computed` logic)
 - `panel_buckling.py`: biaxial-plus-shear panel buckling
 - `sections.py`: stringer-specific T/omega combined cross-sections using half of each adjacent panel, including unequal panel thicknesses
@@ -85,4 +96,4 @@ Units follow the assignment convention: mm, tonne, s, N, mJ, MPa, and tonne/mm³
 python3 -m unittest discover -s tests -v
 ```
 
-The regression test compares every populated cell in the generated `Results_final` matrix against the validated baseline, with the final mass intentionally changed to the geometry-derived `Mass_computed` value. The fixture is self-contained and does not read `Calculation.xlsx`.
+The regression tests exercise the generated `Results_final` matrix, geometry-driven mass/volume propagation, stress import, XLSX export, and run-history behavior. The fixture is self-contained and does not read `Calculation.xlsx`.

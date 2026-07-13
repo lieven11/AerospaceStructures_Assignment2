@@ -5,12 +5,8 @@ import math
 from pathlib import Path
 from typing import Any
 
-from .geometry import panel_thicknesses_mm
+from .geometry import panel_offsets_mm, panel_thicknesses_mm, stringer_offsets_mm
 from .models import ColumnBucklingResult, PanelBucklingResult, StrengthResult
-
-
-PANEL_OFFSET_MM = 1.0
-STRINGER_OFFSET_MM = 3.0
 
 
 def _load_submission_template(path: Path) -> list[list[object | None]]:
@@ -27,6 +23,10 @@ def _minimum_numeric(values: list[float | str]) -> float:
     return min(numeric)
 
 
+def _flatten_element_groups(groups: list[list[int]]) -> list[int]:
+    return [int(element_id) for group in groups for element_id in group]
+
+
 def build_results_final_matrix(
     strength: dict[int, StrengthResult],
     panel_buckling: list[PanelBucklingResult],
@@ -39,21 +39,28 @@ def build_results_final_matrix(
     """Populate the official submission layout with all calculated results."""
     matrix = _load_submission_template(submission_template)
 
-    # Cross-section dimensions and provisional FE offsets.
-    for row_index, thickness in zip(range(20, 30), panel_thicknesses_mm(geometry)):
+    # Cross-section dimensions and FE model offsets.
+    for row_index, thickness, offset in zip(
+        range(20, 30),
+        panel_thicknesses_mm(geometry),
+        panel_offsets_mm(geometry),
+    ):
         matrix[row_index][1] = thickness
-        matrix[row_index][2] = PANEL_OFFSET_MM
+        matrix[row_index][2] = offset
 
     t_stringer_ids = set(layout["t_section_stringer_ids"])
-    for stringer_id, row_index in enumerate(range(31, 40), start=1):
+    offsets = stringer_offsets_mm(geometry, len(layout["stringer_element_groups"]))
+    for stringer_id, row_index, offset in zip(range(1, len(offsets) + 1), range(31, 40), offsets):
         section_key = "t_stringer" if stringer_id in t_stringer_ids else "omega_stringer"
         section = geometry[section_key]
         matrix[row_index][1] = section["DIM4_mm"] if section_key == "t_stringer" else section["DIM2_mm"]
         matrix[row_index][2] = section["DIM2_mm"] if section_key == "t_stringer" else section["DIM1_mm"]
-        matrix[row_index][3] = STRINGER_OFFSET_MM
+        matrix[row_index][3] = offset
 
     # Strength analysis.
-    strength_ids = list(range(1, 31)) + list(range(37, 64))
+    strength_ids = _flatten_element_groups(layout["panel_element_groups"]) + _flatten_element_groups(
+        layout["stringer_element_groups"]
+    )
     for row_index, element_id in enumerate(strength_ids, start=45):
         matrix[row_index][1] = strength[element_id].rf_case1
         matrix[row_index][4] = strength[element_id].rf_case2
