@@ -361,3 +361,212 @@ return; # Stop script and return to application
 *createentity results name="result1"
 *setvalue results id=1 resultfiles= "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/thickness_3.9to5.op2"
 *setvalue results id=1 init=1
+*startnotehistorystate {Modified Thickness DIM4 of Beam Section}
+*setvalue beamsects id=4 beamsect_dim4=3
+*endnotehistorystate {Modified Thickness DIM4 of Beam Section}
+*startnotehistorystate {Modified Thickness DIM4 of Beam Section}
+*setvalue beamsects id=4 beamsect_dim4=2.1
+*endnotehistorystate {Modified Thickness DIM4 of Beam Section}
+*startnotehistorystate {Modified Thickness DIM4 of Beam Section}
+*setvalue beamsects id=4 beamsect_dim4=3
+*endnotehistorystate {Modified Thickness DIM4 of Beam Section}
+*setvalue elems id=37 STATUS=2 OS_ELEMS_LOCAL_OFFSETA={0 0 -9.375}
+*clearmark elements 1
+*createmark elements 1 37
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.375 0 1 0 0 0
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*setvalue elems id=37 STATUS=2 3511={        }
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*mergehistorystate "" ""
+*startnotehistorystate {Attached attributes to Element}
+*setvalue elems id=37 STATUS=0 4842="GGG"
+*setvalue elems id=37 STATUS=2 3240=1
+*endnotehistorystate {Attached attributes to Element}
+*mergehistorystate "" ""
+*setvalue elems id=37 STATUS=2 OS_ELEMS_LOCAL_OFFSETB={0 0 -9.375}
+*clearmark elements 1
+*createmark elements 1 37
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.375
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*setvalue elems id=37 STATUS=2 3511={        }
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*mergehistorystate "" ""
+*rotateabout 1 -1679.10999 1310.96802 54.8319321
+*viewset -0.614379762 -0.0214379808 -0.788719165 0 -0.657643477 -0.538395446 0.52691119 0 -0.435938718 0.842419585 0.316680717 0 -2372.33201 489.5712 1247.10455 1 -2548.7985 -501.992178 -931.867394 486.863897
+*rotateabout 1 -1636.12939 1645.18408 118.840454
+*viewset -0.79067196 0.227521644 0.568394012 0 0.442905264 -0.428403974 0.787594415 0 0.42269703 0.87447352 0.237956476 0 -4570.64069 721.319848 3048.00104 1 -2548.7985 -501.992178 -931.867394 486.863897
+*rotateabout 1 -1252.09998 1883.229 155.737
+*viewset -0.678146878 0.195640354 0.708407837 0 0.579642134 -0.450203683 0.679213987 0 0.451809482 0.871229875 0.19190283 0 -5755.48625 49.1138604 3434.58977 1 -4459.67609 -1670.6152 979.010193 1655.48692
+*rotateabout 1 -1234.82996 1259.74585 50.8773155
+*viewset -0.893927741 0.117125565 0.432637025 0 0.262139791 -0.64632872 0.716618389 0 0.363560069 0.754016437 0.547067902 0 -5617.47677 205.192654 3028.86982 1 -4459.67609 -1670.6152 979.010193 1655.48692
+*window 3 -3208.51251 -814.408551 -2867.48739 -613.538071
+*rotateabout 1 -773.613785 1740.33295 -7.56414032
+*viewset -0.994817196 -0.100153702 -0.0175494527 0 -0.0076783433 -0.0981064584 0.995146304 0 -0.101389301 0.990123406 0.0968289773 0 16.6054398 93.1829095 -4.39702302 1 -382.681035 -288.963773 1929.9086 273.835493
+*rotateabout 1 -1414.25635 1401.69067 70.828949
+*viewset -0.984572911 -0.162773203 0.0641955396 0 0.0748529183 -0.0602032838 0.99537561 0 -0.158155694 0.984825086 0.0714585716 0 -712.864006 -222.814292 112.686894 1 364.801831 -107.053935 1182.42574 91.9256541
+*rotateabout 1 -1422.76001 1193.24902 34.0749664
+*viewset 0.525140049 -0.0811724146 0.847135744 0 0.76198686 0.48811176 -0.425585403 0 -0.378951124 0.868998244 0.318179347 0 622.696912 -757.045549 2913.77624 1 364.801831 -107.053935 1182.42574 91.9256541
+*rotateabout 1 -1548.75061 1319.19482 61.3598633
+*viewset 0.415244187 0.829424522 0.373667268 0 0.692681976 -0.0220064467 -0.720907342 0 -0.589715139 0.558185165 -0.583665466 0 559.005326 1423.77003 2625.4159 1 -44.0101232 -206.543729 1591.23769 191.415448
+*undohistorystate 1
+*undohistorystate 1
+*undohistorystate 1
+*undohistorystate 1
+*rotateabout 1 -1440.04004 1815.86401 143.858795
+*viewset 0.338711315 0.549650539 0.763648433 0 0.730081998 0.358433451 -0.581812459 0 -0.593510676 0.754592437 -0.279884498 0 554.564711 238.74458 2890.72544 1 -198.710384 -244.192083 1745.93795 229.063802
+*createmark elements 1 37-42 46-48 52-54
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETA={0 0 -9.375}
+*clearmark elements 1
+*createmark elements 1 37
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.375 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 38
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.375 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 39
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.375 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 40
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.375 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 41
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.375 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 42
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.375 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 46
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.375 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 47
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.375 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 48
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.375 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 52
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.375 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 53
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.375 0 1 0 0 0
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 54
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 1 1 0 0 -9.375 0 1 0 0 0
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETA" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*createmark elements 1 37-42 46-48 52-54
+*setvalue elems mark=1 STATUS=2 OS_ELEMS_LOCAL_OFFSETB={0 0 -9.375}
+*clearmark elements 1
+*createmark elements 1 37
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.375
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 38
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.375
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 39
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.375
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 40
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.375
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 41
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.375
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 42
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.375
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 46
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.375
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 47
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.375
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 48
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.375
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 52
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.375
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 53
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.375
+*clearmark elements 1
+*clearmark elements 1
+*createmark elements 1 54
+*createvector 1 1 0 0
+*barelementupdatewithoffsets 1 0 0 1 0 0 0 0 "" 0 0 0 0 1 0 0 0 1 1 0 0 -9.375
+*clearmark elements 1
+*startnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*endnotehistorystate {Updated "OS_ELEMS_LOCAL_OFFSETB" of Elements}
+*startnotehistorystate {Attached attributes to Element}
+*endnotehistorystate {Attached attributes to Element}
+*rotateabout 1 -1440.04004 1815.86401 143.858749
+*viewset -0.881576975 0.166784634 0.441593618 0 0.341617032 -0.420176437 0.840683987 0 0.325760404 0.891983547 0.3134414 0 -1033.73462 829.804989 -241.461618 1 364.801831 -107.053935 1182.42574 91.9256541
+*writefile "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/SuperPanel_AS_Project_Part2_submitted_start_3766785.fem.hm" 1
+*retainmarkselections 0
+*feoutputmergeincludefiles 0
+*setsubmodeltype "HM_INCLUDEFILES"
+*setentitytypesupportedbyenggid 1 0
+*createstringarray 8 "HM_NODEELEMS_SET_COMPRESS_SKIP " "EXPORT_DMIG_LONGFORMAT " \
+  "HMENGINEERING_XML" "HMSUBSYSTEMCOMMENTS_XML" "HMMATCOMMENTS_XML" "HMBOMCOMMENTS_XML" \
+  "INCLUDE_RELATIVE_PATH " "EXPORT_SOLVER_DECK_XML_1 "
+*feoutputwithdata "C:/Program Files/Altair/2025.1/hwdesktop/templates/feoutput/optistruct/optistruct" "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/TDIM4 2.1 to 3.fem" 0 0 2 1 8
+*startnotehistorystate {Deleted Result "result1"}
+*clearmark results 1
+*createmark results 1 "result1"
+*deletemark results 1
+*endnotehistorystate {Deleted Result "result1"}
+*clearmarkall 1
+*createentity results name="result1"
+*setvalue results id=1 resultfiles= "C:/Users/lieve/OneDrive/Uni/Aerospace Master/1. Semester/Aerospace Strcutures/Assignment 2/AerospaceStructures_Assignment2/Analysis/TDIM4 2.1 to 3.op2"
+*setvalue results id=1 init=1
